@@ -86,7 +86,9 @@ pnpm dlx vercel link --project create-vlang-app
 pnpm dlx vercel --prod
 ```
 
-After the first production deploy succeeds, set the GitHub repository homepage to the live URL (see issue #8).
+After the first production deploy succeeds, confirm the GitHub repository homepage points at the live site (see below).
+
+**GitHub repository homepage:** `https://create-vlang-app.vercel.app` (set via `gh repo edit --homepage`).
 
 ## Contributing
 
