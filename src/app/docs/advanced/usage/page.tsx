@@ -7,8 +7,8 @@ import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 export const metadata = {
-  title: 'Advanced Usage | Create Awesome Node App Documentation',
-  description: 'Advanced usage guide for create-awesome-node-app',
+  title: 'Advanced Usage | Create Vlang App Documentation',
+  description: 'Advanced usage guide for create-vlang-app — flags, cache, and environment variables.',
 };
 
 export default function AdvancedUsagePage() {
@@ -18,312 +18,203 @@ export default function AdvancedUsagePage() {
         <div className="space-y-2">
           <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">Advanced Usage</h1>
           <p className="text-lg text-muted-foreground">
-            Advanced techniques and configurations for create-awesome-node-app
+            Flags, catalog cache, and environment variables for create-vlang-app
           </p>
         </div>
 
         <div className="space-y-8">
-          <section id="package-managers" className="space-y-4">
-            <h2 className="text-2xl font-bold tracking-tight">Using Different Package Managers</h2>
+          <section id="v-workflow" className="space-y-4">
+            <h2 className="text-2xl font-bold tracking-tight">Working with V in Generated Projects</h2>
             <p>
-              create-awesome-node-app supports multiple package managers. You can choose the one that best fits your
-              workflow:
+              Every CVA template is V-native: dependencies live in <code>v.mod</code>, formatting uses{' '}
+              <code>v fmt</code>, static checks use <code>v vet</code>, and tests run with <code>v test</code>.
             </p>
 
-            <Tabs defaultValue="npm" className="w-full mt-4">
+            <Tabs defaultValue="install" className="w-full mt-4">
               <TabsList className="grid w-full grid-cols-3">
-                <TabsTrigger value="npm">npm</TabsTrigger>
-                <TabsTrigger value="yarn">Yarn</TabsTrigger>
-                <TabsTrigger value="pnpm">pnpm</TabsTrigger>
+                <TabsTrigger value="install">v install</TabsTrigger>
+                <TabsTrigger value="run">v run</TabsTrigger>
+                <TabsTrigger value="quality">fmt / vet / test</TabsTrigger>
               </TabsList>
-              <TabsContent value="npm" className="mt-2">
+              <TabsContent value="install" className="mt-2">
                 <div className="rounded-md bg-muted p-4">
                   <pre className="text-sm overflow-x-auto">
-                    {`# Create a new project with npm
-npx create-awesome-node-app my-app
+                    {`# Scaffold (v install runs unless --no-install)
+create-vlang-app my-app --template web-server
 
-# Specify package manager explicitly
-npx create-awesome-node-app my-app --use-npm
-
-# Install dependencies
+# Refresh module deps later
 cd my-app
-npm install
-
-# Run development server
-npm run dev`}
+v install`}
                   </pre>
                 </div>
               </TabsContent>
-              <TabsContent value="yarn" className="mt-2">
+              <TabsContent value="run" className="mt-2">
                 <div className="rounded-md bg-muted p-4">
                   <pre className="text-sm overflow-x-auto">
-                    {`# Create a new project with Yarn
-yarn create awesome-node-app my-app
-
-# Specify package manager explicitly
-npx create-awesome-node-app my-app --use-yarn
-
-# Install dependencies
+                    {`# Run the web server (template-dependent entrypoint)
 cd my-app
-yarn
+v run .
 
-# Run development server
-yarn dev`}
+# Run with arguments
+v run . -- --port 8080`}
                   </pre>
                 </div>
               </TabsContent>
-              <TabsContent value="pnpm" className="mt-2">
+              <TabsContent value="quality" className="mt-2">
                 <div className="rounded-md bg-muted p-4">
                   <pre className="text-sm overflow-x-auto">
-                    {`# Create a new project with pnpm
-pnpm create awesome-node-app my-app
-
-# Specify package manager explicitly
-npx create-awesome-node-app my-app --use-pnpm
-
-# Install dependencies
-cd my-app
-pnpm install
-
-# Run development server
-pnpm dev`}
+                    {`v fmt .
+v vet .
+v test .`}
                   </pre>
                 </div>
               </TabsContent>
             </Tabs>
 
             <Alert className="mt-4">
-              <AlertTitle>Package Manager Detection</AlertTitle>
+              <AlertTitle>Skip automatic install</AlertTitle>
               <AlertDescription>
-                create-awesome-node-app automatically detects the package manager you're using. If you want to override
-                this behavior, use the <code>--use-yarn</code> or <code>--use-pnpm</code> flag.
+                Use <code>--no-install</code> when scaffolding if you want to review <code>v.mod</code> before running{' '}
+                <code>v install</code> yourself.
               </AlertDescription>
             </Alert>
+          </section>
+
+          <section id="cli-flags" className="space-y-4 mt-8">
+            <h2 className="text-2xl font-bold tracking-tight">CLI flags</h2>
+            <div className="overflow-x-auto">
+              <table className="w-full border-collapse text-sm">
+                <thead>
+                  <tr className="border-b">
+                    <th className="py-2 px-4 text-left">Flag</th>
+                    <th className="py-2 px-4 text-left">Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    ['-v, --verbose', 'Print additional logs'],
+                    ['-i, --info', 'Print environment debug info'],
+                    ['--no-install', 'Skip v install after scaffolding'],
+                    ['-t, --template <slug>', 'Template from cva-templates'],
+                    ['--addons / --extend', 'Extensions to merge into the project'],
+                    ['-f, --force', 'Overwrite non-empty target directory'],
+                    ['--interactive / --no-interactive', 'Prompt for options or run headless'],
+                    ['--list-templates / --list-addons', 'Print catalog entries'],
+                    ['--set key=value', 'Override template variables'],
+                    ['--keep-on-failure', 'Preserve partial output on error'],
+                    ['--strict-version', 'Require exact CLI/catalog versions (see CVA_STRICT_VERSION)'],
+                    ['--offline', 'Do not reach network for catalog refresh'],
+                    ['--no-cache', 'Bypass ~/.cache/cva (see CVA_NO_CATALOG_CACHE)'],
+                    ['--cache-dir', 'Override catalog cache location'],
+                    ['--pin <ref>', 'Pin cva-templates git ref'],
+                    ['--refresh always|stale|manual', 'Catalog refresh policy (CVA_REFRESH)'],
+                  ].map(([flag, desc]) => (
+                    <tr key={flag} className="border-b">
+                      <td className="py-2 px-4">
+                        <code>{flag}</code>
+                      </td>
+                      <td className="py-2 px-4">{desc}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section id="cache" className="space-y-4 mt-8">
+            <h2 className="text-2xl font-bold tracking-tight">Catalog cache</h2>
+            <p>
+              The CLI caches <code>Create-Vlang-App/cva-templates</code> under <code>~/.cache/cva</code> by default.
+              Manage it with subcommands:
+            </p>
+            <div className="rounded-md bg-muted p-4">
+              <pre className="text-sm overflow-x-auto">{`create-vlang-app cache dir
+create-vlang-app cache list
+create-vlang-app cache clean
+create-vlang-app cache verify
+create-vlang-app cache outdated
+create-vlang-app cache update
+create-vlang-app cache doctor`}</pre>
+            </div>
+          </section>
+
+          <section id="env" className="space-y-4 mt-8">
+            <h2 className="text-2xl font-bold tracking-tight">Environment variables</h2>
+            <ul className="list-disc pl-6 space-y-2 text-sm">
+              <li>
+                <code>CVA_CACHE_DIR</code> — catalog cache path (default <code>~/.cache/cva</code>)
+              </li>
+              <li>
+                <code>CVA_STRICT_VERSION</code> — fail when CLI and catalog versions mismatch
+              </li>
+              <li>
+                <code>CVA_NO_CATALOG_CACHE</code> — disable catalog caching
+              </li>
+              <li>
+                <code>CVA_REFRESH</code> — <code>always</code>, <code>stale</code>, or <code>manual</code>
+              </li>
+              <li>
+                <code>CVA_SKIP_GIT</code> — skip <code>git init</code> after scaffolding
+              </li>
+            </ul>
           </section>
 
           <section id="ci-cd" className="space-y-4 mt-8">
             <h2 className="text-2xl font-bold tracking-tight">CI/CD Integration</h2>
             <p>
-              Most templates offer extensions that include files for different CI/CD tools. These extensions provide
-              ready-to-use configurations for popular CI/CD platforms:
+              Use the <code>github-setup</code> extension for workflows powered by{' '}
+              <a href="https://github.com/vlang/setup-v" className="text-primary hover:underline" target="_blank" rel="noreferrer">
+                vlang/setup-v
+              </a>
+              :
             </p>
+            <pre className="text-xs bg-muted p-2 rounded-md overflow-x-auto">
+              create-vlang-app my-app --template web-server --addons github-setup --no-interactive
+            </pre>
 
-            <div className="grid gap-4 md:grid-cols-2 mt-4">
-              <div className="rounded-lg border p-4">
-                <h3 className="text-lg font-semibold mb-2">GitHub Actions</h3>
-                <p className="text-sm text-muted-foreground">
-                  The GitHub Setup extension adds GitHub Actions workflows for CI/CD, along with issue templates and
-                  other GitHub-specific configurations.
-                </p>
-                <div className="mt-4">
-                  <pre className="text-xs bg-muted p-2 rounded-md overflow-x-auto">
-                    npx create-awesome-node-app my-app --addons github-setup
-                  </pre>
-                </div>
-              </div>
-
-              <div className="rounded-lg border p-4">
-                <h3 className="text-lg font-semibold mb-2">Docker Compose</h3>
-                <p className="text-sm text-muted-foreground">
-                  The Docker Compose Setup extension adds Docker environments for development and production.
-                </p>
-                <div className="mt-4">
-                  <pre className="text-xs bg-muted p-2 rounded-md overflow-x-auto">
-                    npx create-awesome-node-app my-app --addons docker-compose-setup
-                  </pre>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-6">
-              <h3 className="text-xl font-semibold">Deployment Workflow</h3>
-              <p className="mt-2">Here's a typical deployment workflow for a create-awesome-node-app project:</p>
-
-              <DiagramWorkflow
-                className="mt-4"
-                title="Deployment Workflow"
-                chart={`
+            <DiagramWorkflow
+              className="mt-4"
+              title="Deployment Workflow"
+              chart={`
 graph TD
-    A["Developer Pushes Code"] --> B["CI/CD Pipeline Triggered"]
-    B --> C["Install Dependencies"]
-    C --> D["Run Linting"]
-    C --> E["Run Tests"]
-    D --> F["Build Application"]
+    A["Developer Pushes Code"] --> B["CI Pipeline Triggered"]
+    B --> C["setup-v installs V"]
+    C --> D["v fmt -verify / v vet"]
+    C --> E["v test"]
+    D --> F["Build Binary"]
     E --> F
-    F --> G["Deploy to Staging"]
-    G --> H["Run Integration Tests"]
-    H --> I{"Tests Pass?"}
-    I -->|Yes| J["Deploy to Production"]
-    I -->|No| K["Notify Team & Fix Issues"]
-    K --> A
-                `}
-              />
-            </div>
-          </section>
-
-          <section id="monorepo" className="space-y-4 mt-8">
-            <h2 className="text-2xl font-bold tracking-tight">Monorepo Setup</h2>
-            <p>create-awesome-node-app offers a Turborepo Boilerplate template for monorepo setups:</p>
-
-            <div className="rounded-md bg-muted p-4 mt-4">
-              <pre className="text-sm overflow-x-auto">
-                {`# Create a new monorepo project
-npx create-awesome-node-app my-monorepo --template turborepo-boilerplate
-
-# Navigate to the project
-cd my-monorepo
-
-# Run all packages in development mode
-npm run dev
-
-# Build all packages
-npm run build`}
-              </pre>
-            </div>
-
-            <p className="mt-4">The Turborepo Boilerplate template includes:</p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li>Turborepo configuration for efficient builds</li>
-              <li>Workspace setup for managing multiple packages</li>
-              <li>Shared configurations for TypeScript, ESLint, and other tools</li>
-              <li>Example packages to demonstrate the monorepo structure</li>
-            </ul>
+    F --> G["Deploy Artifact"]
+`}
+            />
           </section>
 
           <section id="troubleshooting" className="space-y-4 mt-8">
-            <h2 className="text-2xl font-bold tracking-tight">Troubleshooting Common Issues</h2>
-
-            <div className="space-y-6">
-              <div className="rounded-lg border p-4">
-                <h3 className="text-lg font-semibold flex items-center gap-2">
-                  <AlertTriangle className="h-5 w-5 text-amber-500" />
-                  Installation Failures
-                </h3>
-                <p className="mt-2">If you encounter issues during installation:</p>
-                <div className="mt-2 space-y-2">
-                  <p>
-                    <strong>Problem:</strong> Dependencies fail to install
-                  </p>
-                  <p>
-                    <strong>Solution:</strong> Try using the <code>--no-install</code> flag and then install
-                    dependencies manually
-                  </p>
-                  <div className="rounded-md bg-muted p-2 mt-2">
-                    <code>npx create-awesome-node-app my-app --no-install</code>
-                  </div>
-                  <div className="rounded-md bg-muted p-2 mt-2">
-                    <code>cd my-app && npm install</code>
-                  </div>
-                </div>
-              </div>
-
-              <div className="rounded-lg border p-4">
-                <h3 className="text-lg font-semibold flex items-center gap-2">
-                  <AlertTriangle className="h-5 w-5 text-amber-500" />
-                  Template or Extension Not Found
-                </h3>
-                <p className="mt-2">If a template or extension is not found:</p>
-                <div className="mt-2 space-y-2">
-                  <p>
-                    <strong>Problem:</strong> Specified template or extension doesn't exist
-                  </p>
-                  <p>
-                    <strong>Solution:</strong> List available templates and extensions to check the correct names
-                  </p>
-                  <div className="rounded-md bg-muted p-2 mt-2">
-                    <code>npx create-awesome-node-app --list-templates</code>
-                  </div>
-                  <div className="rounded-md bg-muted p-2 mt-2">
-                    <code>npx create-awesome-node-app --list-addons</code>
-                  </div>
-                </div>
-              </div>
-
-              <div className="rounded-lg border p-4">
-                <h3 className="text-lg font-semibold flex items-center gap-2">
-                  <AlertTriangle className="h-5 w-5 text-amber-500" />
-                  Compatibility Issues
-                </h3>
-                <p className="mt-2">If you encounter compatibility issues between templates and extensions:</p>
-                <div className="mt-2 space-y-2">
-                  <p>
-                    <strong>Problem:</strong> Extension is not compatible with the selected template
-                  </p>
-                  <p>
-                    <strong>Solution:</strong> Check the extension's compatibility in the documentation or use the
-                    interactive mode
-                  </p>
-                  <div className="rounded-md bg-muted p-2 mt-2">
-                    <code>npx create-awesome-node-app my-app --interactive</code>
-                  </div>
-                </div>
-              </div>
+            <h2 className="text-2xl font-bold tracking-tight">Troubleshooting</h2>
+            <div className="rounded-lg border p-4">
+              <h3 className="text-lg font-semibold flex items-center gap-2">
+                <AlertTriangle className="h-5 w-5 text-blue-500" />
+                Catalog or module issues
+              </h3>
+              <ul className="list-disc pl-6 space-y-2 mt-2 text-sm">
+                <li>
+                  Run <code>create-vlang-app cache doctor</code> to validate cache integrity
+                </li>
+                <li>
+                  Set <code>CVA_REFRESH=always</code> to force-refresh cva-templates
+                </li>
+                <li>
+                  Ensure <code>~/.vmodules</code> is writable when running <code>v install</code>
+                </li>
+              </ul>
             </div>
-
-            <Alert className="mt-6">
-              <AlertTitle>Debugging Tips</AlertTitle>
-              <AlertDescription>
-                <ul className="list-disc pl-6 space-y-2 mt-2">
-                  <li>
-                    Use the <code>--verbose</code> flag to see detailed logs during project creation
-                  </li>
-                  <li>
-                    Check the <code>--info</code> flag to print environment debug information
-                  </li>
-                  <li>If all else fails, try creating a project with minimal options and then add features manually</li>
-                </ul>
-              </AlertDescription>
-            </Alert>
           </section>
 
-          <section id="templates-extensions-list" className="space-y-4 mt-8">
-            <h2 className="text-2xl font-bold tracking-tight">Available Templates and Extensions</h2>
-            <p>create-awesome-node-app offers a variety of templates and extensions. Here's how to list them:</p>
-
-            <div className="rounded-md bg-muted p-4 mt-4">
-              <pre className="text-sm overflow-x-auto">
-                {`# List all available templates
-npx create-awesome-node-app --list-templates
-
-# List all available extensions
-npx create-awesome-node-app --list-addons`}
-              </pre>
-            </div>
-
-            <p className="mt-4">
-              You can also view the templates and extensions on the project's website or GitHub repository.
-            </p>
-          </section>
-
-          <section id="interactive-mode" className="space-y-4 mt-8">
-            <h2 className="text-2xl font-bold tracking-tight">Interactive Mode</h2>
-            <p>The interactive mode provides a guided experience for creating projects:</p>
-
-            <div className="rounded-md bg-muted p-4 mt-4">
-              <pre className="text-sm overflow-x-auto">{`npx create-awesome-node-app my-app --interactive`}</pre>
-            </div>
-
-            <p className="mt-4">In interactive mode, you'll be prompted to:</p>
-            <ol className="list-decimal pl-6 space-y-2">
-              <li>Select a template from the available options</li>
-              <li>Choose extensions compatible with the selected template</li>
-              <li>Configure template-specific options (if available)</li>
-              <li>Confirm your choices before project creation</li>
-            </ol>
-
-            <p className="mt-4">
-              This mode is especially useful for beginners or when you're not sure which template or extensions to use.
-            </p>
-          </section>
-
-          <div className="flex justify-center mt-8">
-            <Button variant="outline" asChild>
-              <Link href="/docs/templates/customization">
-                <ArrowLeft className="mr-2 h-4 w-4" />
-                Back to Template Customization
-              </Link>
-            </Button>
-          </div>
+          <Button variant="outline" asChild className="mt-8">
+            <Link href="/docs">
+              <ArrowLeft className="mr-2 h-4 w-4" />
+              Back to Documentation
+            </Link>
+          </Button>
         </div>
       </div>
     </div>

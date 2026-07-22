@@ -6,8 +6,8 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Button } from '@/components/ui/button';
 
 export const metadata = {
-  title: 'Contributing | Create Awesome Node App Documentation',
-  description: 'Learn how to contribute templates and extensions to create-awesome-node-app',
+  title: 'Contributing | Create Vlang App Documentation',
+  description: 'Learn how to contribute templates and extensions to create-vlang-app',
 };
 
 export default function ContributingPage() {
@@ -15,7 +15,7 @@ export default function ContributingPage() {
     <div className="container py-10">
       <div className="mx-auto max-w-5xl space-y-6">
         <div className="space-y-2">
-          <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">Contributing to create-awesome-node-app</h1>
+          <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">Contributing to create-vlang-app</h1>
           <p className="text-lg text-muted-foreground">
             Learn how to contribute templates and extensions to the project
           </p>
@@ -24,7 +24,7 @@ export default function ContributingPage() {
         <div className="space-y-8">
           <section id="contributing-overview" className="space-y-4">
             <h2 className="text-2xl font-bold tracking-tight">Contribution Overview</h2>
-            <p>The create-awesome-node-app project welcomes contributions from the community. You can contribute by:</p>
+            <p>The create-vlang-app project welcomes contributions from the community. You can contribute by:</p>
             <ul className="list-disc pl-6 space-y-2">
               <li>Adding new templates</li>
               <li>Adding new extensions</li>
@@ -54,7 +54,7 @@ graph TD
           <section id="contributing-templates" className="space-y-4">
             <h2 className="text-2xl font-bold tracking-tight">Contributing New Templates</h2>
             <p>
-              Templates are the foundation of create-awesome-node-app. They provide the initial structure and
+              Templates are the foundation of create-vlang-app. They provide the initial structure and
               configuration for new projects. This guide will walk you through the process of creating and contributing
               a new template.
             </p>
@@ -110,7 +110,7 @@ graph TD
       "name": "Your Template Name",
       "slug": "your-template-name",
       "description": "A concise description of your template",
-      "url": "https://github.com/Create-Node-App/cna-templates/tree/main/templates/your-template-name",
+      "url": "https://github.com/Create-Vlang-App/cva-templates/tree/main/templates/your-template-name",
       "type": "template-type",
       "category": "category-slug",
       "labels": ["Label1", "Label2", "Label3"]
@@ -207,19 +207,19 @@ graph TD
                   Submitting Your Template
                 </h3>
                 <p>
-                  Once your template is ready, you can submit it for inclusion in the create-awesome-node-app project:
+                  Once your template is ready, you can submit it for inclusion in the create-vlang-app project:
                 </p>
 
                 <ol className="list-decimal pl-6 space-y-4 mt-4">
                   <li>
                     <strong>Fork the repository:</strong> Create a fork of the{' '}
                     <a
-                      href="https://github.com/Create-Node-App/cna-templates"
+                      href="https://github.com/Create-Vlang-App/cva-templates"
                       target="_blank"
                       className="text-primary hover:underline"
                       rel="noreferrer"
                     >
-                      cna-templates repository
+                      cva-templates repository
                     </a>{' '}
                     on GitHub.
                   </li>
@@ -302,7 +302,7 @@ graph TD
       "name": "Your Extension Name",
       "slug": "your-extension-name",
       "description": "A concise description of your extension",
-      "url": "https://github.com/Create-Node-App/cna-templates/tree/main/extensions/your-extension-name",
+      "url": "https://github.com/Create-Vlang-App/cva-templates/tree/main/extensions/your-extension-name",
       "type": ["template-type1", "template-type2"],
       "category": "Extension Category",
       "labels": ["Label1", "Label2", "Label3"]
@@ -442,12 +442,12 @@ graph TD
                   <li>
                     <strong>Fork the repository:</strong> Create a fork of the{' '}
                     <a
-                      href="https://github.com/Create-Node-App/cna-templates"
+                      href="https://github.com/Create-Vlang-App/cva-templates"
                       target="_blank"
                       className="text-primary hover:underline"
                       rel="noreferrer"
                     >
-                      cna-templates repository
+                      cva-templates repository
                     </a>{' '}
                     on GitHub.
                   </li>
@@ -506,7 +506,7 @@ graph TD
                 <ul className="list-disc pl-6 space-y-2">
                   <li>Ensure compatibility with supported extensions</li>
                   <li>Use the latest stable versions of dependencies</li>
-                  <li>Test with different Node.js versions</li>
+                  <li>Test with different V versions</li>
                   <li>Consider cross-platform compatibility</li>
                 </ul>
               </div>

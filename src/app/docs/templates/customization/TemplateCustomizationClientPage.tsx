@@ -20,7 +20,7 @@ export default function TemplateCustomizationClientPage() {
           <section id="customization-basics" className="space-y-4">
             <h2 className="text-2xl font-bold tracking-tight">Customization Basics</h2>
             <p>
-              Templates provided by create-awesome-node-app are designed to be customizable. This guide will show you
+              Templates provided by create-vlang-app are designed to be customizable. This guide will show you
               how to modify templates to suit your specific requirements, from simple configuration changes to more
               advanced customizations.
             </p>
@@ -32,7 +32,7 @@ export default function TemplateCustomizationClientPage() {
                   Project Structure Customization
                 </h3>
                 <p>
-                  After creating a project with create-awesome-node-app, you can modify its structure to better suit
+                  After creating a project with create-vlang-app, you can modify its structure to better suit
                   your needs. Here are some common customizations:
                 </p>
 
@@ -249,7 +249,7 @@ npm uninstall unused-package`}
                   Adding Extensions After Project Creation
                 </h3>
                 <p>
-                  If you want to add extensions to an existing project created with create-awesome-node-app, you have a
+                  If you want to add extensions to an existing project created with create-vlang-app, you have a
                   few options:
                 </p>
 
@@ -271,7 +271,7 @@ npm uninstall unused-package`}
                 <Alert className="mt-4">
                   <AlertTitle>Note</AlertTitle>
                   <AlertDescription>
-                    Currently, create-awesome-node-app doesn't support adding extensions to existing projects through
+                    Currently, create-vlang-app doesn't support adding extensions to existing projects through
                     the CLI. This feature may be added in future versions.
                   </AlertDescription>
                 </Alert>
@@ -459,7 +459,7 @@ NEXT_PUBLIC_SITE_URL=https://example.com`}
 
                 <div className="rounded-md bg-muted p-4 mt-2">
                   <pre className="text-sm overflow-x-auto">
-                    {`// In Node.js (server-side)
+                    {`// In V (server-side)
 const apiUrl = process.env.API_URL
 
 // In React (client-side, Vite)
