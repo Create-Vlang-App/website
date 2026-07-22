@@ -8,6 +8,7 @@
 [![CLI](https://img.shields.io/badge/CLI-create--vlang--app-4B6EAF?style=flat-square)](https://github.com/Create-Vlang-App/create-vlang-app)
 [![Templates](https://img.shields.io/badge/templates-cva--templates-blue?style=flat-square)](https://github.com/Create-Vlang-App/cva-templates)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
+[![Discord](https://img.shields.io/discord/1527933660764831825?style=flat-square&label=Discord&logo=discord&logoColor=white)](https://discord.gg/dwFTsR7fK2)
 
 </div>
 
