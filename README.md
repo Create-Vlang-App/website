@@ -1,22 +1,26 @@
-# Create Awesome Node App - Official Website
+# Create Vlang App - Official Website
 
-[![npm](https://img.shields.io/npm/v/create-awesome-node-app?style=flat-square&color=cb3837)](https://www.npmjs.com/package/create-awesome-node-app)
-[![npm downloads](https://img.shields.io/npm/dm/create-awesome-node-app?style=flat-square&color=cb3837)](https://www.npmjs.com/package/create-awesome-node-app)
-[![Templates](https://img.shields.io/badge/templates-cna--templates-blue?style=flat-square)](https://github.com/Create-Node-App/cna-templates)
-[![GitHub org](https://img.shields.io/badge/GitHub-Create--Node--App-black?style=flat-square&logo=github)](https://github.com/Create-Node-App)
+[![VPM](https://img.shields.io/badge/vpm-create--vlang--app-blue?style=flat-square)](https://github.com/Create-Vlang-App/create-vlang-app)
+[![Templates](https://img.shields.io/badge/templates-cva--templates-blue?style=flat-square)](https://github.com/Create-Vlang-App/cva-templates)
+[![GitHub org](https://img.shields.io/badge/GitHub-Create--Vlang--App-black?style=flat-square&logo=github)](https://github.com/Create-Vlang-App)
 
-This is the official website for [Create Awesome Node App](https://www.npmjs.com/package/create-awesome-node-app), a tool that helps you quickly set up Node.js projects with best practices and modern tooling.
+This is the official website for [Create Vlang App](https://github.com/Create-Vlang-App/create-vlang-app), a tool that helps you quickly set up V projects with best practices and modern tooling (VPM-first).
 
 ## Project Links
 
-- [Official website](https://create-awesome-node-app.vercel.app)
-- [CLI package on npm](https://www.npmjs.com/package/create-awesome-node-app)
-- [Main Create-Node-App repository](https://github.com/Create-Node-App/create-node-app)
-- [Templates and extensions catalog](https://github.com/Create-Node-App/cna-templates)
-- [Create-Node-App GitHub organization](https://github.com/Create-Node-App)
+- [Official website](https://create-vlang-app.vercel.app)
+- [CLI module on VPM](https://github.com/Create-Vlang-App/create-vlang-app)
+- [Main Create-Vlang-App repository](https://github.com/Create-Vlang-App/create-vlang-app)
+- [Templates and extensions catalog](https://github.com/Create-Vlang-App/cva-templates)
+- [Create-Vlang-App GitHub organization](https://github.com/Create-Vlang-App)
 
 > [!TIP]
-> This project was initialized with [create-awesome-node-app](https://www.npmjs.com/package/create-awesome-node-app). **DO NOT USE THIS TEMPLATE DIRECTLY!** Instead, create your own project using the command and following the interactive menu options. For more information, refer to the documentation!
+> Scaffold new apps with `create-vlang-app` — do not clone template snapshot repos for production work. Prefer:
+>
+> ```bash
+> v install create-vlang-app
+> create-vlang-app my-api --template web-server
+> ```
 
 ## Features
 
@@ -50,10 +54,10 @@ For most development work, you'll primarily use `pnpm run dev`. However, you hav
 
 | pnpm run <script>  | Description                                                                                         |
 | ------------------ | --------------------------------------------------------------------------------------------------- |
-| `npm run dev`      | Starts the local development server for building and previewing your application.                   |
-| `npm run format`   | Formats the codebase using [Prettier](https://prettier.io/) to ensure consistent code styling.      |
-| `npm run lint`     | Runs linting on the codebase to identify and report on patterns with [eslint](https://eslint.org/). |
-| `npm run lint:fix` | Automatically fixes linting errors in the codebase where possible.                                  |
+| `pnpm run dev`     | Starts the local development server for building and previewing your application.                   |
+| `pnpm run format`  | Formats the codebase using [Prettier](https://prettier.io/) to ensure consistent code styling.      |
+| `pnpm run lint`    | Runs linting on the codebase to identify and report on patterns with [eslint](https://eslint.org/). |
+| `pnpm run lint:fix`| Automatically fixes linting errors in the codebase where possible.                                  |
 
 ## Production
 
@@ -61,17 +65,17 @@ Scripts for preparing and viewing the production version:
 
 | pnpm run <script> | Description                                                                                  |
 | ----------------- | -------------------------------------------------------------------------------------------- |
-| `npm run start`   | Serves your application using the production setup, ensuring it's ready for deployment.      |
-| `npm run build`   | Compiles the application into the `dist/` directory, preparing it for production deployment. |
+| `pnpm run start`  | Serves your application using the production setup, ensuring it's ready for deployment.      |
+| `pnpm run build`  | Compiles the application into the `dist/` directory, preparing it for production deployment. |
 
 ## Contributing
 
-Bug reports, feature requests, and pull requests are welcome on the [Create-Node-App/website](https://github.com/Create-Node-App/website) repository!
+Bug reports, feature requests, and pull requests are welcome on the [Create-Vlang-App/website](https://github.com/Create-Vlang-App/website) repository!
 
 ## 👥 Contributors
 
-<a href="https://github.com/Create-Node-App/website/contributors">
-  <img src="https://contrib.rocks/image?repo=Create-Node-App/website" alt="Contributors to Create-Node-App/website"/>
+<a href="https://github.com/Create-Vlang-App/website/contributors">
+  <img src="https://contrib.rocks/image?repo=Create-Vlang-App/website" alt="Contributors to Create-Vlang-App/website"/>
 </a>
 
 Made with [contributors-img](https://contrib.rocks).
