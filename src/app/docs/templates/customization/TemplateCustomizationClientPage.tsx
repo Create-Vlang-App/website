@@ -271,14 +271,16 @@ v install`}
                   <h3 className="text-xl font-semibold">vsl / vtl / rxv starters</h3>
                   <ul className="list-disc pl-6 space-y-2">
                     <li>
-                      <strong>vsl-starter:</strong> Scientific computing examples with a real <code>vsl</code>{' '}
+                      <strong>vsl-starter:</strong> Scientific Computing Starter with a real <code>vsl</code>{' '}
                       dependency.
                     </li>
                     <li>
-                      <strong>vtl-starter:</strong> Tensor workflows on top of <code>vtl</code> (+ transitive vsl).
+                      <strong>vtl-starter:</strong> ML / Tensor Starter on <code>vtl</code>; compose{' '}
+                      <code>vtl-vsl-bridge</code> for plots/GPU.
                     </li>
                     <li>
-                      <strong>rxv-starter:</strong> Reactive pipelines using <code>ulises-jeremias/rxv</code>.
+                      <strong>rxv-starter:</strong> Reactive App Starter using <code>ulises-jeremias/rxv</code>; deepen
+                      with <code>rxv-operators</code>.
                     </li>
                   </ul>
                 </div>

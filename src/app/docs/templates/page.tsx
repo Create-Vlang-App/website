@@ -63,8 +63,9 @@ export default async function DocsTemplatesPage() {
 
             <p>
               Wave-1 templates include <code>web-server</code>, <code>cli-app</code>, <code>library-starter</code>, and{' '}
-              <code>systems-app</code>. Growth starters <code>vsl-starter</code>, <code>vtl-starter</code>, and{' '}
-              <code>rxv-starter</code> ship with real VPM dependencies.
+              <code>systems-app</code>. Domain starters <code>vsl-starter</code> (scientific), <code>vtl-starter</code>{' '}
+              (ML/tensors), and <code>rxv-starter</code> (reactive) ship with real VPM dependencies. Compose vtl+vsl via
+              the <code>vtl-vsl-bridge</code> addon rather than a combined base template.
             </p>
           </section>
 
