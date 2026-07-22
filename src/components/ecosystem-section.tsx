@@ -29,7 +29,7 @@ const ECOSYSTEM: EcosystemEntry[] = [
     description:
       'Composition-first scaffolding for V — web servers, CLIs, libraries, and systems apps with v fmt/vet and VPM.',
     status: 'production',
-    href: 'https://create-vlang-app.vercel.app',
+    href: 'https://create-awesome-vlang-app.vercel.app',
     colors: {
       node1: '#a78bfa',
       node2: '#06b6d4',
