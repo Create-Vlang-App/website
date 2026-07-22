@@ -9,9 +9,9 @@ interface Stat {
 }
 
 const STATS: Stat[] = [
-  { value: 4, label: 'Templates' },
-  { value: 8, label: 'Extensions' },
-  { value: 6, label: 'Categories' },
+  { value: 7, label: 'Templates' },
+  { value: 6, label: 'Extensions' },
+  { value: 9, label: 'Categories' },
   { value: 'MIT', label: 'Licensed' },
 ];
 

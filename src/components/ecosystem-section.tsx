@@ -28,7 +28,7 @@ const ECOSYSTEM: EcosystemEntry[] = [
     slug: 'create-vlang-app',
     description:
       'Composition-first scaffolding for V — web servers, CLIs, libraries, and systems apps with v fmt/vet and VPM.',
-    status: 'beta',
+    status: 'production',
     href: 'https://create-vlang-app.vercel.app',
     colors: {
       node1: '#a78bfa',
@@ -44,8 +44,7 @@ const ECOSYSTEM: EcosystemEntry[] = [
   {
     name: 'Create Python App',
     slug: 'create-python-app',
-    description:
-      'Composition-first scaffolding for Python — FastAPI, Django, Celery, CLIs, and uv workspaces.',
+    description: 'Composition-first scaffolding for Python — FastAPI, Django, Celery, CLIs, and uv workspaces.',
     status: 'beta',
     href: 'https://create-awesome-python-app.vercel.app',
     colors: {
@@ -150,11 +149,21 @@ export function EcosystemSection() {
           </h2>
           <p className="max-w-2xl text-muted-foreground md:text-lg">
             The composition-first scaffolding approach spans ecosystems. Start with V today — explore{' '}
-            <a href="https://github.com/vlang/vsl" className="text-primary hover:underline" target="_blank" rel="noreferrer">
+            <a
+              href="https://github.com/vlang/vsl"
+              className="text-primary hover:underline"
+              target="_blank"
+              rel="noreferrer"
+            >
               vsl
             </a>
             ,{' '}
-            <a href="https://github.com/vlang/vtl" className="text-primary hover:underline" target="_blank" rel="noreferrer">
+            <a
+              href="https://github.com/vlang/vtl"
+              className="text-primary hover:underline"
+              target="_blank"
+              rel="noreferrer"
+            >
               vtl
             </a>
             , and{' '}

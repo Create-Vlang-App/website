@@ -21,7 +21,7 @@ export default function AgentsMdPage() {
           <div className="container relative z-10 px-4 md:px-6">
             <div className="flex flex-col items-center text-center space-y-4">
               <div className="space-y-2">
-                <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl bg-clip-text text-transparent bg-gradient-to-r from-primary to-teal-600 animate-gradient-text">
+                <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl bg-clip-text text-transparent bg-gradient-to-r from-primary to-cyan-500 animate-gradient-text">
                   AGENTS.md Contract
                 </h1>
                 <p className="max-w-2xl text-muted-foreground md:text-lg">
@@ -80,10 +80,10 @@ export default function AgentsMdPage() {
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <Sparkles className="h-5 w-5 text-primary" />
-                    Generated Example (React Template)
+                    Generated Example (Web Server Template)
                   </CardTitle>
                   <CardDescription>
-                    A trimmed example of the AGENTS.md shipped with a React Vite template.
+                    A trimmed example of the AGENTS.md shipped with the web-server starter template.
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -98,62 +98,61 @@ Humans: read CONTRIBUTING.md and the documents under docs/.
 | Topic | Source of Truth |
 |-------|-----------------|
 | Project architecture | docs/PROJECT_STRUCTURE.md |
-| Component patterns | docs/COMPONENT_GUIDELINES.md |
-| Performance guidance | docs/PERFORMANCE.md |
-| State management approach | docs/STATE_MANAGEMENT.md |
-| Styling + design system | docs/STYLING.md |
+| API route patterns | docs/API_GUIDELINES.md |
+| Settings & env vars | docs/CONFIGURATION.md |
+| Database / ORM usage | docs/DATABASE.md |
 | Testing strategy | docs/TESTING.md |
-| Accessibility notes | docs/ACCESSIBILITY.md |
+| Deployment notes | docs/DEPLOYMENT.md |
 
 ## 2. Operating Principles (AI Perspective)
 
 - Documentation-first
 - Reuse-before-build
-- Type safety always (no unvetted any)
+- Keep V code fmt/vet clean
 - Deterministic, incremental changes
 - Explicit assumption logging
 
-## 3. AI Execution Protocol (React Feature Work)
+## 3. AI Execution Protocol (V Feature Work)
 
-When asked to add/modify UI logic:
-1. Locate relevant feature folder (src/features/*) or propose new if justified
+When asked to add/modify API behavior:
+1. Locate the relevant V module (top-level feature dirs)
 2. Read related docs/* referenced above
-3. Prefer extending existing component patterns
+3. Prefer extending existing handlers/modules over new entrypoints
 4. Show proposed file tree + diff plan BEFORE writing code
-5. After code: list follow-up validation steps (lint, type check, test)
+5. After code: list follow-up validation steps (v fmt, v vet, v test)
 
 ## 4. Guardrails (Must Enforce)
 
-- Do NOT fabricate file paths, component APIs, or library versions
-- Do NOT remove existing accessibility props (aria-*, alt, role) without replacement rationale
-- Do NOT introduce global mutable singletons for state—prefer documented patterns
-- ALWAYS flag large dependency additions (>1 lib) for human confirmation
-- ALWAYS surface potential performance regressions (unmemoized large lists, heavy renders)
+- Do NOT fabricate file paths, settings keys, or package versions
+- Do NOT invent VPM module versions or import paths
+- Do NOT nest modules under src/features/ (V imports break)
+- ALWAYS flag new v.mod dependencies for human confirmation
+- ALWAYS surface GC / concurrency tradeoffs when changing systems code
 
-## 5. Component Creation Checklist
+## 5. Module Change Checklist
 
-- Typed props interface exported
-- Meaningful name + colocated index.ts re-export (if pattern exists)
-- Accessibility reviewed (labels, semantics)
-- Story / example or usage snippet considered
-- Test file added or explicitly deferred with reason
+- Public API documented; keep modules top-level
+- Entrypoint wires the new module
+- Config via documented env samples when extensions provide them
+- v test coverage added or deferred with reason
+- docs/ updated when architecture changes
 
 ## 6. When the AI Should Ask or Refuse
 
-Ask for clarification if: feature scope unclear, conflicting patterns, missing target directory.
-Refuse if: asked to bypass validation, remove type safety, duplicate existing documented component.
+Ask for clarification if: feature scope unclear, conflicting patterns, missing target module.
+Refuse if: asked to bypass validation, skip v vet, or invent undocumented VPM deps.
 
 ## 7. Post-Change Assistant Report
 
 Return a bullet summary:
 - Files touched (concise)
 - New dependencies (if any)
-- Type/lint status
+- v fmt / v vet / v test status
 - Suggested manual QA steps
 - Deferred items (tests, docs)
 
 ---
-Maintained automatically by create-vlang-app React template provisioning.
+Maintained automatically by create-vlang-app web-server template provisioning.
 Humans: stop reading—go to CONTRIBUTING.md + docs/.
 `}</code>
                   </pre>
@@ -174,7 +173,8 @@ Humans: stop reading—go to CONTRIBUTING.md + docs/.
                     <li>Add domain-specific escalation triggers (security, data, billing)</li>
                     <li>Reference internal design system docs instead of re-stating variants</li>
                     <li>
-                      Include CI scripts or task runners (e.g. <code>pnpm test:unit</code>) if not obvious
+                      Include CI scripts or task runners (e.g. <code>v test .</code>, <code>v fmt . && v vet .</code>)
+                      if not obvious
                     </li>
                     <li>Keep tone imperative and concise—optimize for machine parsing + embedding</li>
                   </ul>

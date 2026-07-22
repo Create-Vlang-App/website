@@ -7,8 +7,8 @@ describe('categorySchema', () => {
       slug: 'frontend-applications',
       name: 'Frontend Applications',
       description: 'Templates for building web interfaces.',
-      details: 'Discover templates for React, Vue, and other frameworks.',
-      labels: ['Frontend', 'UI', 'React'],
+      details: 'Discover templates for web servers, CLIs, and libraries.',
+      labels: ['Web', 'HTTP', 'veb'],
     };
     expect(categorySchema.safeParse(validCategory).success).toBe(true);
   });
@@ -38,12 +38,12 @@ describe('templateSchema', () => {
 
   it('should reject a template with invalid url', () => {
     const invalidTemplate = {
-      name: 'React Vite Starter',
-      description: 'A fast React boilerplate.',
+      name: 'Web Server Starter',
+      description: 'A vweb/veb HTTP starter.',
       url: 'not-a-url',
       type: 'react',
       category: 'frontend-applications',
-      labels: ['React'],
+      labels: ['web'],
       slug: 'react-vite-starter',
     };
     expect(templateSchema.safeParse(invalidTemplate).success).toBe(false);
@@ -83,19 +83,19 @@ describe('templatesDataSchema', () => {
     const validData = {
       templates: [
         {
-          name: 'React Vite Starter',
-          description: 'A fast React boilerplate.',
+          name: 'Web Server Starter',
+          description: 'A vweb/veb HTTP starter.',
           url: 'https://github.com/example/react-vite',
           type: 'react',
           category: 'frontend-applications',
-          labels: ['React'],
+          labels: ['web'],
           slug: 'react-vite-starter',
         },
       ],
       extensions: [
         {
-          name: 'Tailwind CSS',
-          description: 'Add Tailwind CSS.',
+          name: 'v-docker',
+          description: 'Add Dockerfile and compose for V apps.',
           url: 'https://github.com/example/tailwind',
           type: 'react',
           category: 'UI',

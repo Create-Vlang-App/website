@@ -32,11 +32,11 @@ export default function DocsPage() {
             <h2 className="text-2xl font-bold tracking-tight">Introduction to create-vlang-app</h2>
             <p>
               <code>create-vlang-app</code> is a powerful command-line tool designed to streamline the process of
-              setting up modern V applications. It provides a collection of carefully crafted templates and
-              extensions that help developers quickly bootstrap projects with best practices and optimal configurations.
+              setting up modern V applications. It provides a collection of carefully crafted templates and extensions
+              that help developers quickly bootstrap projects with best practices and optimal configurations.
             </p>
 
-            <Card className="bg-gradient-to-r from-amber-500/10 via-amber-400/10 to-teal-600/10 border-amber-500/20 hover:border-amber-500/40 transition-colors">
+            <Card className="bg-gradient-to-r from-violet-500/10 via-violet-400/10 to-cyan-500/10 border-violet-500/20 hover:border-violet-500/40 transition-colors">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Sparkles className="h-5 w-5 text-yellow-400" />
@@ -56,7 +56,7 @@ export default function DocsPage() {
                 <div className="flex flex-col gap-2 sm:flex-row">
                   <Button
                     variant="outline"
-                    className="bg-white/5 hover:bg-white/10 border-amber-500/20 hover:border-amber-500/40"
+                    className="bg-white/5 hover:bg-white/10 border-violet-500/20 hover:border-violet-500/40"
                     asChild
                   >
                     <Link href="/docs/agents-md" className="group">
@@ -143,7 +143,9 @@ export default function DocsPage() {
             <h3 className="text-xl font-semibold mt-6">Prerequisites</h3>
             <p>Before using create-vlang-app, ensure you have the following installed:</p>
             <ul className="list-disc pl-6 space-y-2 mt-2">
-              <li>V compiler 0.5 or later (<code>v version</code>)</li>
+              <li>
+                V compiler 0.5 or later (<code>v version</code>)
+              </li>
               <li>git (for repository initialization after scaffolding)</li>
             </ul>
 
@@ -265,9 +267,7 @@ export default function DocsPage() {
                 <p className="font-medium">Create a project with a template and extensions:</p>
                 <div className="rounded-md bg-muted p-4 mt-2">
                   <pre className="text-sm">
-                    <code>
-                      create-vlang-app my-app --template web-server --addons v-docker github-setup
-                    </code>
+                    <code>create-vlang-app my-app --template web-server --addons v-docker github-setup</code>
                   </pre>
                 </div>
               </div>

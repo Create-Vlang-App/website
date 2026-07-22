@@ -63,8 +63,8 @@ export default async function DocsTemplatesPage() {
 
             <p>
               Wave-1 templates include <code>web-server</code>, <code>cli-app</code>, <code>library-starter</code>, and{' '}
-              <code>systems-app</code>. Growth templates such as <code>vsl-starter</code>, <code>vtl-starter</code>, and{' '}
-              <code>rxv-starter</code> land after the core CLI stabilizes.
+              <code>systems-app</code>. Growth starters <code>vsl-starter</code>, <code>vtl-starter</code>, and{' '}
+              <code>rxv-starter</code> ship with real VPM dependencies.
             </p>
           </section>
 
@@ -161,9 +161,9 @@ export default async function DocsTemplatesPage() {
               <pre className="text-sm overflow-x-auto">
                 {`templates/
 └── web-server/
-    ├── src/              # Application source
+    ├── docs/             # AUTHORING + structure notes
+    ├── health/           # Top-level feature module example
     ├── v.mod             # Module metadata and dependencies
-    ├── cva.config.json   # Optional scaffold config
     ├── README.md
     └── AGENTS.md         # AI assistant contract`}
               </pre>

@@ -10,7 +10,7 @@ export function ContributorsSection() {
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-16 items-center">
           <div className="space-y-4">
             <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">Open source</div>
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl bg-clip-text text-transparent bg-gradient-to-r from-primary to-teal-600">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl bg-clip-text text-transparent bg-gradient-to-r from-primary to-cyan-500">
               Build with us
             </h2>
             <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed">
@@ -19,7 +19,7 @@ export function ContributorsSection() {
             <div className="flex flex-col sm:flex-row gap-3">
               <Button
                 size="lg"
-                className="bg-gradient-to-r from-primary to-teal-600 hover:from-primary/90 hover:to-teal-600/90"
+                className="bg-gradient-to-r from-primary to-cyan-500 hover:from-primary/90 hover:to-cyan-500/90"
                 asChild
               >
                 <Link href="https://github.com/Create-Vlang-App/create-vlang-app/blob/main/CONTRIBUTING.md">
@@ -38,7 +38,7 @@ export function ContributorsSection() {
           <div className="grid gap-4 sm:grid-cols-2">
             <Card className="border-primary/10 bg-card/80 gradient-border-subtle">
               <CardHeader>
-                <ShieldCheck className="h-6 w-6 text-teal-600 mb-2" />
+                <ShieldCheck className="h-6 w-6 text-cyan-500 mb-2" />
                 <CardTitle className="text-lg">Trusted tooling</CardTitle>
                 <CardDescription>CI-friendly scaffolding, MIT license, and curated templates.</CardDescription>
               </CardHeader>

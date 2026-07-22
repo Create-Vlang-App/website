@@ -1,4 +1,15 @@
-import { ArrowRight, Code, Database, GitBranch, Globe, Layers, TestTube } from 'lucide-react';
+import {
+  ArrowRight,
+  Beaker,
+  Box,
+  Code,
+  Container,
+  Database,
+  GitBranch,
+  Layers,
+  Terminal,
+  Workflow,
+} from 'lucide-react';
 import Link from 'next/link';
 import type React from 'react';
 
@@ -11,54 +22,72 @@ interface TemplateCategoriesProps {
 }
 
 export function TemplateCategories({ categories }: TemplateCategoriesProps) {
-  // Map of category slugs to their respective icons
   const categoryIcons: Record<string, React.ReactNode> = {
-    'frontend-applications': <Code className="h-5 w-5 text-primary" />,
-    'backend-applications': <Database className="h-5 w-5 text-teal-600" />,
-    'fullstack-applications': <Layers className="h-5 w-5 text-amber-500" />,
-    'monorepo-boilerplate': <GitBranch className="h-5 w-5 text-green-500" />,
-    'user-acceptance-testing': <TestTube className="h-5 w-5 text-amber-500" />,
-    'web-extension': <Globe className="h-5 w-5 text-blue-500" />,
+    web: <Code className="h-5 w-5 text-primary" />,
+    cli: <Terminal className="h-5 w-5 text-cyan-500" />,
+    library: <Box className="h-5 w-5 text-violet-400" />,
+    systems: <Workflow className="h-5 w-5 text-cyan-400" />,
+    scientific: <Beaker className="h-5 w-5 text-fuchsia-400" />,
+    reactive: <Layers className="h-5 w-5 text-violet-500" />,
+    ci: <GitBranch className="h-5 w-5 text-green-500" />,
+    containers: <Container className="h-5 w-5 text-blue-500" />,
+    database: <Database className="h-5 w-5 text-cyan-500" />,
   };
 
-  // Map of category slugs to their respective color classes
   const categoryColors: Record<string, { bg: string; hover: string; border: string }> = {
-    'frontend-applications': {
-      bg: 'from-primary/20 to-teal-600/20',
-      hover: 'from-primary/40 to-teal-600/40',
+    web: {
+      bg: 'from-primary/20 to-cyan-500/20',
+      hover: 'from-primary/40 to-cyan-500/40',
       border: 'border-primary/40',
     },
-    'backend-applications': {
-      bg: 'from-teal-600/20 to-amber-500/20',
-      hover: 'from-teal-600/40 to-amber-500/40',
-      border: 'border-teal-600/40',
+    cli: {
+      bg: 'from-cyan-500/20 to-violet-500/20',
+      hover: 'from-cyan-500/40 to-violet-500/40',
+      border: 'border-cyan-500/40',
     },
-    'fullstack-applications': {
-      bg: 'from-amber-500/20 to-teal-600/20',
-      hover: 'from-amber-500/40 to-teal-600/40',
-      border: 'border-amber-500/40',
+    library: {
+      bg: 'from-violet-500/20 to-cyan-500/20',
+      hover: 'from-violet-500/40 to-cyan-500/40',
+      border: 'border-violet-500/40',
     },
-    'monorepo-boilerplate': {
-      bg: 'from-green-500/20 to-teal-500/20',
-      hover: 'from-green-500/40 to-teal-500/40',
+    systems: {
+      bg: 'from-slate-500/20 to-cyan-500/20',
+      hover: 'from-slate-500/40 to-cyan-500/40',
+      border: 'border-slate-500/40',
+    },
+    scientific: {
+      bg: 'from-fuchsia-500/20 to-violet-500/20',
+      hover: 'from-fuchsia-500/40 to-violet-500/40',
+      border: 'border-fuchsia-500/40',
+    },
+    reactive: {
+      bg: 'from-violet-500/20 to-fuchsia-500/20',
+      hover: 'from-violet-500/40 to-fuchsia-500/40',
+      border: 'border-violet-500/40',
+    },
+    ci: {
+      bg: 'from-green-500/20 to-cyan-500/20',
+      hover: 'from-green-500/40 to-cyan-500/40',
       border: 'border-green-500/40',
     },
-    'user-acceptance-testing': {
-      bg: 'from-amber-500/20 to-orange-500/20',
-      hover: 'from-amber-500/40 to-orange-500/40',
-      border: 'border-amber-500/40',
-    },
-    'web-extension': {
+    containers: {
       bg: 'from-blue-500/20 to-cyan-500/20',
       hover: 'from-blue-500/40 to-cyan-500/40',
       border: 'border-blue-500/40',
     },
+    database: {
+      bg: 'from-cyan-500/20 to-blue-500/20',
+      hover: 'from-cyan-500/40 to-blue-500/40',
+      border: 'border-cyan-500/40',
+    },
   };
+
+  const fallback = categoryColors.web;
 
   return (
     <>
       {categories.map((category) => {
-        const colors = categoryColors[category.slug] || categoryColors['frontend-applications'];
+        const colors = categoryColors[category.slug] || fallback;
         const icon = categoryIcons[category.slug] || <Code className="h-5 w-5 text-primary" />;
 
         return (
@@ -74,7 +103,7 @@ export function TemplateCategories({ categories }: TemplateCategoriesProps) {
                   {icon}
                 </div>
               </div>
-              <CardTitle className="group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-primary group-hover:to-teal-600 transition-all duration-300">
+              <CardTitle className="group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-primary group-hover:to-cyan-500 transition-all duration-300">
                 {category.name}
               </CardTitle>
               <CardDescription>{category.description}</CardDescription>
