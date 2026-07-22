@@ -4,7 +4,7 @@
 
 **Docs and catalog site for the Create Vlang App scaffolding toolkit.**
 
-[![Website](https://img.shields.io/badge/site-create--vlang--app.vercel.app-blue?style=flat-square)](https://create-vlang-app.vercel.app)
+[![Website](https://img.shields.io/badge/site-create--awesome--vlang--app.vercel.app-blue?style=flat-square)](https://create-awesome-vlang-app.vercel.app)
 [![CLI](https://img.shields.io/badge/CLI-create--vlang--app-4B6EAF?style=flat-square)](https://github.com/Create-Vlang-App/create-vlang-app)
 [![Templates](https://img.shields.io/badge/templates-cva--templates-blue?style=flat-square)](https://github.com/Create-Vlang-App/cva-templates)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)

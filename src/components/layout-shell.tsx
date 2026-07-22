@@ -149,7 +149,7 @@ export function LayoutShell({ children }: { children: ReactNode }) {
                   <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">Ecosystem</p>
                   <nav className="flex flex-col gap-2">
                     <Link
-                      href="https://create-vlang-app.vercel.app"
+                      href="https://create-awesome-vlang-app.vercel.app"
                       target="_blank"
                       rel="noreferrer"
                       className="flex items-center gap-2 text-sm transition-colors hover:text-foreground"

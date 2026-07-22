@@ -1,4 +1,4 @@
-export const SITE_URL = 'https://create-vlang-app.vercel.app';
+export const SITE_URL = 'https://create-awesome-vlang-app.vercel.app';
 export const SITE_NAME = 'Create Vlang App';
 export const SITE_DESCRIPTION =
   'Discover production-ready templates and extensions to jumpstart your next V project. Combine starters and add-ons to build faster with VPM.';
