@@ -1,6 +1,6 @@
 # ⚙️ Project Configuration
 
-The application has been bootstrapped using [create-awesome-node-app](https://www.npmjs.com/package/create-awesome-node-app) for simplicity reasons. It allows us to create applications quickly without dealing with a complex tooling setup such as bundling, transpiling etc.
+The application is the official [Create Vlang App](https://github.com/Create-Vlang-App/create-vlang-app) marketing site, built with Next.js 15, TypeScript, and Tailwind CSS v3.
 
 You should always configure and use the following tools:
 
