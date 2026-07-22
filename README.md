@@ -1,103 +1,46 @@
-# Create Vlang App - Official Website
+<div align="center">
 
-[![VPM](https://img.shields.io/badge/vpm-create--vlang--app-blue?style=flat-square)](https://github.com/Create-Vlang-App/create-vlang-app)
+# Create Vlang App — Website
+
+**Docs and catalog site for the Create Vlang App scaffolding toolkit.**
+
+[![Website](https://img.shields.io/badge/site-create--vlang--app.vercel.app-blue?style=flat-square)](https://create-vlang-app.vercel.app)
+[![CLI](https://img.shields.io/badge/CLI-create--vlang--app-4B6EAF?style=flat-square)](https://github.com/Create-Vlang-App/create-vlang-app)
 [![Templates](https://img.shields.io/badge/templates-cva--templates-blue?style=flat-square)](https://github.com/Create-Vlang-App/cva-templates)
-[![GitHub org](https://img.shields.io/badge/GitHub-Create--Vlang--App-black?style=flat-square&logo=github)](https://github.com/Create-Vlang-App)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
 
-This is the official website for [Create Vlang App](https://github.com/Create-Vlang-App/create-vlang-app), a tool that helps you quickly set up V projects with best practices and modern tooling (VPM-first).
+</div>
 
-## Project Links
+---
 
-- [Official website](https://create-vlang-app.vercel.app)
-- [CLI module on VPM](https://github.com/Create-Vlang-App/create-vlang-app)
-- [Main Create-Vlang-App repository](https://github.com/Create-Vlang-App/create-vlang-app)
-- [Templates and extensions catalog](https://github.com/Create-Vlang-App/cva-templates)
-- [Create-Vlang-App GitHub organization](https://github.com/Create-Vlang-App)
+## Install the CLI
 
-> [!TIP]
-> Scaffold new apps with `create-vlang-app` — do not clone template snapshot repos for production work. Prefer:
->
-> ```bash
-> v install create-vlang-app
-> create-vlang-app my-api --template web-server
-> ```
+Prefer the GitHub Release binary (linux amd64) from [`create-vlang-app@0.1.0`](https://github.com/Create-Vlang-App/create-vlang-app/releases/tag/create-vlang-app%400.1.0), or build from source:
 
-## Features
+```bash
+git clone https://github.com/Create-Vlang-App/create-vlang-app.git
+cd create-vlang-app && make build
+./create-vlang-app my-app --template web-server
+```
 
-- ⚡️ **Instant HMR (Hot Module Replacement)** - Leveraging Next.js for fast refreshes and updates during development.
-- ⚛ **React Integration** - Utilizes [React](https://reactjs.org/) for building the user interface.
-- 🦾 **TypeScript Support** - Ensures type safety with [TypeScript](https://www.typescriptlang.org/).
+When published on VPM: `v install create-vlang-app`.
 
-## Extra Documentation
+## Catalog
 
-Discover more about the project structure, available scripts, and much more in the [docs](./docs) folder!
+Vendored copy of the official bank registry:
 
-## Pre-packed Development Tools
+- [`public/data/templates.json`](public/data/templates.json)
+- Source of truth: [cva-templates](https://github.com/Create-Vlang-App/cva-templates)
 
-- [TypeScript](https://www.typescriptlang.org/) - For type-safe code.
-- [eslint](https://eslint.org/) - A linter tool for identifying and reporting on patterns in JavaScript and JSX.
-- [prettier](https://prettier.io/) - An opinionated code formatter for clean and consistent code style.
-- [husky](https://www.npmjs.com/package/husky) - Simplifies the use of Git hooks in your project.
-- [lint-staged](https://www.npmjs.com/package/lint-staged) - Allows running linters on git staged files to catch errors before they're committed.
+## Development
 
-## Quick Start
-
-```sh
-fnm use
+```bash
 pnpm install
-pnpm run dev
+pnpm dev
 ```
 
-## Development Workflow
+## Related
 
-For most development work, you'll primarily use `pnpm run dev`. However, you have additional scripts at your disposal for various tasks:
-
-| pnpm run <script>   | Description                                                                                         |
-| ------------------- | --------------------------------------------------------------------------------------------------- |
-| `pnpm run dev`      | Starts the local development server for building and previewing your application.                   |
-| `pnpm run format`   | Formats the codebase using [Prettier](https://prettier.io/) to ensure consistent code styling.      |
-| `pnpm run lint`     | Runs linting on the codebase to identify and report on patterns with [eslint](https://eslint.org/). |
-| `pnpm run lint:fix` | Automatically fixes linting errors in the codebase where possible.                                  |
-
-## Production
-
-Scripts for preparing and viewing the production version:
-
-| pnpm run <script> | Description                                                                                  |
-| ----------------- | -------------------------------------------------------------------------------------------- |
-| `pnpm run start`  | Serves your application using the production setup, ensuring it's ready for deployment.      |
-| `pnpm run build`  | Compiles the application into the `dist/` directory, preparing it for production deployment. |
-
-## Deployment (Vercel)
-
-Production URL (target): [https://create-vlang-app.vercel.app](https://create-vlang-app.vercel.app)
-
-The Vercel CLI was not available in the automation environment used for this repo, so connect the GitHub project manually:
-
-1. Sign in at [vercel.com](https://vercel.com) with a account that can manage the `Create-Vlang-App` org.
-2. **Add New → Project** → import `Create-Vlang-App/website` from GitHub.
-3. Framework preset: **Next.js** (defaults are fine). Build command: `pnpm run build`. Output: Next default.
-4. Deploy, then open **Project Settings → Domains** and assign `create-vlang-app.vercel.app` (or confirm the auto-generated `.vercel.app` alias).
-5. Optional CLI linking (when `vercel` is installed and authenticated):
-
-```sh
-pnpm dlx vercel login
-pnpm dlx vercel link --project create-vlang-app
-pnpm dlx vercel --prod
-```
-
-After the first production deploy succeeds, confirm the GitHub repository homepage points at the live site (see below).
-
-**GitHub repository homepage:** `https://create-vlang-app.vercel.app` (set via `gh repo edit --homepage`).
-
-## Contributing
-
-Bug reports, feature requests, and pull requests are welcome on the [Create-Vlang-App/website](https://github.com/Create-Vlang-App/website) repository!
-
-## 👥 Contributors
-
-<a href="https://github.com/Create-Vlang-App/website/contributors">
-  <img src="https://contrib.rocks/image?repo=Create-Vlang-App/website" alt="Contributors to Create-Vlang-App/website"/>
-</a>
-
-Made with [contributors-img](https://contrib.rocks).
+- [create-vlang-app](https://github.com/Create-Vlang-App/create-vlang-app) — CLI
+- [cva-templates](https://github.com/Create-Vlang-App/cva-templates) — templates & extensions
+- [Create-Vlang-App org](https://github.com/Create-Vlang-App)
