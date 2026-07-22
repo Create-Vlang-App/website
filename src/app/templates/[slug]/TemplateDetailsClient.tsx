@@ -127,7 +127,7 @@ export function TemplateDetailsClient({ template, compatibleExtensions }: Templa
                     </h3>
                     <p>To use this template, run the following command:</p>
                     <div className="bg-muted rounded-md p-4 font-mono text-sm overflow-x-auto shimmer">
-                      <p>npx create-awesome-node-app --template {template.slug}</p>
+                      <p>create-vlang-app --template {template.slug}</p>
                     </div>
                     <h3 className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-teal-600">
                       With Extensions
@@ -135,7 +135,7 @@ export function TemplateDetailsClient({ template, compatibleExtensions }: Templa
                     <p>You can also add extensions to enhance your template:</p>
                     <div className="bg-muted rounded-md p-4 font-mono text-sm overflow-x-auto shimmer">
                       <p>
-                        npx create-awesome-node-app --template {template.slug} --addons{' '}
+                        create-vlang-app --template {template.slug} --addons{' '}
                         {compatibleExtensions.length >= 2
                           ? `${compatibleExtensions[0].slug} ${compatibleExtensions[1].slug}`
                           : compatibleExtensions.length === 1
@@ -194,14 +194,14 @@ export function TemplateDetailsClient({ template, compatibleExtensions }: Templa
                 </CardHeader>
                 <CardContent>
                   <div className="bg-muted rounded-md p-4 font-mono text-sm overflow-x-auto mb-4">
-                    <p className="text-green-500">$ npx create-awesome-node-app \</p>
+                    <p className="text-green-500">$ create-vlang-app \</p>
                     <p className="pl-4">--template {template.slug}</p>
                   </div>
                 </CardContent>
                 <CardFooter className="flex flex-col items-start gap-4">
                   <CopyButton
                     className="w-full bg-gradient-to-r from-primary to-teal-600 hover:from-primary/90 hover:to-teal-600/90 glow transition-all duration-300"
-                    command={`npx create-awesome-node-app --template ${template.slug}`}
+                    command={`create-vlang-app --template ${template.slug}`}
                   />
                   <Link href={template.url} className="w-full" target="_blank" rel="noopener noreferrer">
                     <Button
@@ -332,7 +332,7 @@ export function TemplateDetailsClient({ template, compatibleExtensions }: Templa
                 Ready to Build?
               </h2>
               <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Start creating your awesome Node.js app with this template
+                Start creating your V app with this template
               </p>
             </div>
             <div className="flex flex-col gap-2 min-[400px]:flex-row">
@@ -340,7 +340,7 @@ export function TemplateDetailsClient({ template, compatibleExtensions }: Templa
                 size="lg"
                 className="bg-gradient-to-r from-primary to-teal-600 hover:from-primary/90 hover:to-teal-600/90 glow transition-all duration-300"
                 onClick={() => {
-                  navigator.clipboard?.writeText?.(`npx create-awesome-node-app --template ${template.slug}`);
+                  navigator.clipboard?.writeText?.(`create-vlang-app --template ${template.slug}`);
                 }}
               >
                 Get Started

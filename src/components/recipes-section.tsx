@@ -22,65 +22,68 @@ interface Recipe {
 
 const recipes: Recipe[] = [
   {
-    title: 'Modern SPA',
-    description: 'React + Vite with Tailwind and Zustand for a fast client app.',
-    icon: Layers,
-    labels: ['React', 'Vite', 'Tailwind', 'Zustand'],
-    command: {
-      base: 'npx create-awesome-node-app my-app ',
-      templateFlag: '--template',
-      templateValue: ' react-vite-boilerplate ',
-      addonsFlag: '--addons',
-      addonsValue: ' tailwind-css zustand vitest-react-testing-library',
-    },
-    rawCommand:
-      'npm create awesome-node-app@latest my-spa -- --template react-vite-boilerplate --addons tailwind-css zustand --no-interactive',
-    href: '/templates/react-vite-boilerplate',
-  },
-  {
-    title: 'Full-stack web',
-    description: 'Next.js with Auth.js and Drizzle for a production app foundation.',
-    icon: Workflow,
-    labels: ['Next.js', 'Auth.js', 'Drizzle', 'PostgreSQL'],
-    command: {
-      base: 'npx create-awesome-node-app my-app ',
-      templateFlag: '--template',
-      templateValue: ' nextjs-starter ',
-      addonsFlag: '--addons',
-      addonsValue: ' nextjs-auth nextjs-drizzle-postgres',
-    },
-    rawCommand:
-      'npm create awesome-node-app@latest my-app -- --template nextjs-starter --addons nextjs-auth nextjs-drizzle-postgres --no-interactive',
-    href: '/templates/nextjs-starter',
-  },
-  {
-    title: 'API platform',
-    description: 'NestJS with Docker and GitHub Actions for a shippable backend.',
+    title: 'Web server',
+    description: 'vweb/veb HTTP starter with Docker and GitHub Actions via setup-v.',
     icon: Server,
-    labels: ['NestJS', 'Docker', 'GitHub Actions', 'OpenAPI'],
+    labels: ['vweb', 'Docker', 'GitHub Actions', 'VPM'],
     command: {
-      base: 'npx create-awesome-node-app my-api ',
+      base: 'create-vlang-app my-api ',
       templateFlag: '--template',
-      templateValue: ' nestjs-boilerplate ',
+      templateValue: ' web-server ',
       addonsFlag: '--addons',
-      addonsValue: ' docker-compose-setup github-setup',
+      addonsValue: ' v-docker github-setup',
     },
     rawCommand:
-      'npm create awesome-node-app@latest my-api -- --template nestjs-boilerplate --addons docker-compose-setup github-setup --no-interactive',
-    href: '/templates/nestjs-boilerplate',
+      'create-vlang-app my-api --template web-server --addons v-docker github-setup --no-interactive',
+    href: '/templates/web-server',
   },
   {
-    title: 'SaaS + AI flagship',
-    description: 'Multi-tenant Next.js SaaS with AI, Auth, and pgvector built in.',
-    icon: Sparkles,
-    labels: ['Next.js', 'AI', 'pgvector', 'Multi-tenant'],
+    title: 'CLI tool',
+    description: 'flag/cli starter with fmt/vet hooks and Dev Container extension.',
+    icon: Layers,
+    labels: ['CLI', 'flag', 'v fmt', 'Dev Container'],
     command: {
-      base: 'npx create-awesome-node-app my-saas ',
+      base: 'create-vlang-app my-cli ',
       templateFlag: '--template',
-      templateValue: ' nextjs-saas-ai-starter',
+      templateValue: ' cli-app ',
+      addonsFlag: '--addons',
+      addonsValue: ' development-container github-setup',
     },
-    rawCommand: 'npm create awesome-node-app@latest my-saas -- --template nextjs-saas-ai-starter --no-interactive',
-    href: '/templates/nextjs-saas-ai-starter',
+    rawCommand:
+      'create-vlang-app my-cli --template cli-app --addons development-container github-setup --no-interactive',
+    href: '/templates/cli-app',
+  },
+  {
+    title: 'Library module',
+    description: 'Publishable v.mod library with docs, examples, and v test harness.',
+    icon: Workflow,
+    labels: ['Library', 'v.mod', 'v test', 'VPM'],
+    command: {
+      base: 'create-vlang-app my-lib ',
+      templateFlag: '--template',
+      templateValue: ' library-starter ',
+      addonsFlag: '--addons',
+      addonsValue: ' github-setup v-fmt-vet',
+    },
+    rawCommand:
+      'create-vlang-app my-lib --template library-starter --addons github-setup v-fmt-vet --no-interactive',
+    href: '/templates/library-starter',
+  },
+  {
+    title: 'Systems app',
+    description: 'Low-level V starter with optional Docker and CI overlays.',
+    icon: Sparkles,
+    labels: ['Systems', 'Performance', 'Docker', 'Native'],
+    command: {
+      base: 'create-vlang-app my-sys ',
+      templateFlag: '--template',
+      templateValue: ' systems-app ',
+      addonsFlag: '--addons',
+      addonsValue: ' v-docker github-setup',
+    },
+    rawCommand:
+      'create-vlang-app my-sys --template systems-app --addons v-docker github-setup --no-interactive',
+    href: '/templates/systems-app',
   },
 ];
 
@@ -91,11 +94,11 @@ export function RecipesSection() {
         <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
           <div className="space-y-2">
             <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">Popular recipes</div>
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl bg-clip-text text-transparent bg-gradient-to-r from-primary to-teal-600">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl bg-clip-text text-transparent bg-gradient-to-r from-primary to-violet-500">
               Choose a path. Ship faster.
             </h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed">
-              Curated template + addon combinations with copy-paste commands.
+              Curated template + extension combinations with copy-paste commands for the V toolchain.
             </p>
           </div>
         </div>
@@ -108,10 +111,9 @@ export function RecipesSection() {
                 key={recipe.title}
                 className={`flex flex-col md:flex-row md:items-center gap-6 py-8 px-4 rounded-lg ${index % 2 === 1 ? 'bg-muted/20' : 'bg-transparent'}`}
               >
-                {/* Left: icon + title + description + labels */}
                 <div className="flex-1 space-y-3 min-w-0">
                   <div className="flex items-center gap-3">
-                    <div className="h-10 w-10 shrink-0 rounded-md bg-gradient-to-br from-amber-500/20 to-teal-600/20 flex items-center justify-center">
+                    <div className="h-10 w-10 shrink-0 rounded-md bg-gradient-to-br from-violet-500/20 to-cyan-600/20 flex items-center justify-center">
                       <Icon className="h-5 w-5 text-primary" />
                     </div>
                     <div>
@@ -131,7 +133,6 @@ export function RecipesSection() {
                   </div>
                 </div>
 
-                {/* Right: syntax-highlighted command block + actions */}
                 <div className="flex-1 space-y-3 min-w-0">
                   <div className="rounded-lg bg-card/60 border border-border/50 p-3 font-mono text-xs overflow-x-auto">
                     <span className="text-muted-foreground">{recipe.command.base}</span>
