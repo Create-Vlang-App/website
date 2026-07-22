@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
 export const metadata = {
-  title: 'AGENTS.md | Create Awesome Node App',
+  title: 'AGENTS.md | Create Vlang App',
   description: 'Guide to the generated AGENTS.md contract for AI assistants.',
 };
 
@@ -153,7 +153,7 @@ Return a bullet summary:
 - Deferred items (tests, docs)
 
 ---
-Maintained automatically by create-awesome-node-app React template provisioning.
+Maintained automatically by create-vlang-app React template provisioning.
 Humans: stop reading—go to CONTRIBUTING.md + docs/.
 `}</code>
                   </pre>

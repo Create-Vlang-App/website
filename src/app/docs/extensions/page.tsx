@@ -21,12 +21,12 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
 export const metadata: Metadata = {
-  title: 'Extensions | Create Awesome Node App Documentation',
+  title: 'Extensions | Create Vlang App Documentation',
   description:
     'Learn about extensions and how to add features like state management, testing, and UI libraries to your project.',
   alternates: { canonical: '/docs/extensions' },
   openGraph: {
-    title: 'Extensions | Create Awesome Node App Documentation',
+    title: 'Extensions | Create Vlang App Documentation',
     description:
       'Learn about extensions and how to add features like state management, testing, and UI libraries to your project.',
     url: '/docs/extensions',
@@ -141,7 +141,7 @@ export default function DocsExtensionsPage() {
             <div className="rounded-md bg-muted p-4">
               <pre className="text-sm overflow-x-auto">
                 <code>
-                  npx create-awesome-node-app my-app --template react-vite-boilerplate --addons react-zustand
+                  create-vlang-app my-app --template react-vite-boilerplate --addons react-zustand
                   react-tailwindcss react-testing-library-with-vitest
                 </code>
               </pre>
@@ -219,12 +219,12 @@ export default function DocsExtensionsPage() {
             <p>
               Extensions live in the <code>extensions/</code> directory of the{' '}
               <a
-                href="https://github.com/Create-Node-App/cna-templates"
+                href="https://github.com/Create-Vlang-App/cva-templates"
                 target="_blank"
                 rel="noreferrer"
                 className="text-primary hover:underline"
               >
-                cna-templates
+                cva-templates
               </a>{' '}
               repository:
             </p>
@@ -246,7 +246,7 @@ export default function DocsExtensionsPage() {
             <h2 className="text-2xl font-bold tracking-tight">Listing available extensions</h2>
             <div className="rounded-md bg-muted p-4">
               <pre className="text-sm">
-                <code>npx create-awesome-node-app --list-addons</code>
+                <code>create-vlang-app --list-addons</code>
               </pre>
             </div>
             <p>

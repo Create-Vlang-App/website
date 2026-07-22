@@ -7,12 +7,12 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 export const metadata: Metadata = {
-  title: 'Documentation | Create Awesome Node App',
-  description: 'Comprehensive documentation for create-awesome-node-app',
+  title: 'Documentation | Create Vlang App',
+  description: 'Comprehensive documentation for create-vlang-app',
   alternates: { canonical: '/docs' },
   openGraph: {
-    title: 'Documentation | Create Awesome Node App',
-    description: 'Comprehensive documentation for create-awesome-node-app',
+    title: 'Documentation | Create Vlang App',
+    description: 'Comprehensive documentation for create-vlang-app',
     url: '/docs',
     type: 'article',
   },
@@ -24,15 +24,15 @@ export default function DocsPage() {
       <div className="mx-auto max-w-5xl space-y-6">
         <div className="space-y-2">
           <h1 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">Documentation</h1>
-          <p className="text-lg text-muted-foreground">Comprehensive guide to using create-awesome-node-app</p>
+          <p className="text-lg text-muted-foreground">Comprehensive guide to using create-vlang-app</p>
         </div>
 
         <div className="space-y-8">
           <section id="introduction" className="space-y-4">
-            <h2 className="text-2xl font-bold tracking-tight">Introduction to create-awesome-node-app</h2>
+            <h2 className="text-2xl font-bold tracking-tight">Introduction to create-vlang-app</h2>
             <p>
-              <code>create-awesome-node-app</code> is a powerful command-line tool designed to streamline the process of
-              setting up modern Node.js applications. It provides a collection of carefully crafted templates and
+              <code>create-vlang-app</code> is a powerful command-line tool designed to streamline the process of
+              setting up modern V applications. It provides a collection of carefully crafted templates and
               extensions that help developers quickly bootstrap projects with best practices and optimal configurations.
             </p>
 
@@ -110,34 +110,26 @@ export default function DocsPage() {
 
             <h3 className="text-xl font-semibold">Getting Started</h3>
             <p>
-              Using <code>create-awesome-node-app</code> is straightforward. You can create a new project with a single
+              Using <code>create-vlang-app</code> is straightforward. You can create a new project with a single
               command:
             </p>
 
-            <Tabs defaultValue="npm" className="w-full">
-              <TabsList className="grid w-full grid-cols-3">
-                <TabsTrigger value="npm">npm</TabsTrigger>
-                <TabsTrigger value="yarn">Yarn</TabsTrigger>
-                <TabsTrigger value="pnpm">pnpm</TabsTrigger>
+            <Tabs defaultValue="vpm" className="w-full">
+              <TabsList className="grid w-full grid-cols-2">
+                <TabsTrigger value="vpm">VPM</TabsTrigger>
+                <TabsTrigger value="scaffold">Scaffold</TabsTrigger>
               </TabsList>
-              <TabsContent value="npm" className="mt-2">
+              <TabsContent value="vpm" className="mt-2">
                 <div className="rounded-md bg-muted p-4">
                   <pre className="text-sm">
-                    <code>npx create-awesome-node-app my-app</code>
+                    <code>v install create-vlang-app</code>
                   </pre>
                 </div>
               </TabsContent>
-              <TabsContent value="yarn" className="mt-2">
+              <TabsContent value="scaffold" className="mt-2">
                 <div className="rounded-md bg-muted p-4">
                   <pre className="text-sm">
-                    <code>yarn create awesome-node-app my-app</code>
-                  </pre>
-                </div>
-              </TabsContent>
-              <TabsContent value="pnpm" className="mt-2">
-                <div className="rounded-md bg-muted p-4">
-                  <pre className="text-sm">
-                    <code>pnpm create awesome-node-app my-app</code>
+                    <code>create-vlang-app my-app --template web-server</code>
                   </pre>
                 </div>
               </TabsContent>
@@ -149,10 +141,10 @@ export default function DocsPage() {
             </p>
 
             <h3 className="text-xl font-semibold mt-6">Prerequisites</h3>
-            <p>Before using create-awesome-node-app, ensure you have the following installed:</p>
+            <p>Before using create-vlang-app, ensure you have the following installed:</p>
             <ul className="list-disc pl-6 space-y-2 mt-2">
-              <li>Node.js (version 18.0.0 or higher)</li>
-              <li>npm, Yarn, or pnpm package manager</li>
+              <li>V compiler 0.5 or later (<code>v version</code>)</li>
+              <li>git (for repository initialization after scaffolding)</li>
             </ul>
 
             <h3 className="text-xl font-semibold mt-6">Command Options</h3>
@@ -189,39 +181,44 @@ export default function DocsPage() {
                     <td className="py-2 px-4">
                       <code>--no-install</code>
                     </td>
-                    <td className="py-2 px-4">Generate package.json without installing dependencies</td>
+                    <td className="py-2 px-4">Generate project without running v install</td>
                   </tr>
                   <tr className="border-b">
                     <td className="py-2 px-4">
                       <code>-t, --template &lt;template&gt;</code>
                     </td>
-                    <td className="py-2 px-4">Specify a template for the created project</td>
+                    <td className="py-2 px-4">Specify a template from cva-templates</td>
                   </tr>
                   <tr className="border-b">
                     <td className="py-2 px-4">
                       <code>--addons [extensions...]</code>
                     </td>
-                    <td className="py-2 px-4">Specify extensions to apply for the boilerplate generation</td>
+                    <td className="py-2 px-4">Specify extensions to merge into the scaffold</td>
                   </tr>
                   <tr className="border-b">
                     <td className="py-2 px-4">
-                      <code>--use-yarn</code>
+                      <code>--extend [extensions...]</code>
                     </td>
-                    <td className="py-2 px-4">Use yarn instead of npm or pnpm</td>
+                    <td className="py-2 px-4">Alias for --addons</td>
                   </tr>
                   <tr className="border-b">
                     <td className="py-2 px-4">
-                      <code>--use-pnpm</code>
+                      <code>-f, --force</code>
                     </td>
-                    <td className="py-2 px-4">Use pnpm instead of yarn or npm</td>
+                    <td className="py-2 px-4">Overwrite an existing non-empty directory</td>
                   </tr>
                   <tr className="border-b">
                     <td className="py-2 px-4">
                       <code>--interactive</code>
                     </td>
-                    <td className="py-2 px-4">Run in interactive mode to select options (default: false)</td>
+                    <td className="py-2 px-4">Run prompts to select template and extensions</td>
                   </tr>
-                  {/* --ai-tool flag removed (deprecated) */}
+                  <tr className="border-b">
+                    <td className="py-2 px-4">
+                      <code>--no-cache</code>
+                    </td>
+                    <td className="py-2 px-4">Bypass catalog cache (~/.cache/cva)</td>
+                  </tr>
                   <tr className="border-b">
                     <td className="py-2 px-4">
                       <code>--list-templates</code>
@@ -250,7 +247,7 @@ export default function DocsPage() {
                 <p className="font-medium">Create a project with interactive mode:</p>
                 <div className="rounded-md bg-muted p-4 mt-2">
                   <pre className="text-sm">
-                    <code>npx create-awesome-node-app my-app --interactive</code>
+                    <code>create-vlang-app my-app --interactive</code>
                   </pre>
                 </div>
               </div>
@@ -259,7 +256,7 @@ export default function DocsPage() {
                 <p className="font-medium">Create a project with a specific template:</p>
                 <div className="rounded-md bg-muted p-4 mt-2">
                   <pre className="text-sm">
-                    <code>npx create-awesome-node-app my-app --template react-vite-boilerplate</code>
+                    <code>create-vlang-app my-app --template web-server --addons v-docker github-setup</code>
                   </pre>
                 </div>
               </div>
@@ -269,8 +266,7 @@ export default function DocsPage() {
                 <div className="rounded-md bg-muted p-4 mt-2">
                   <pre className="text-sm">
                     <code>
-                      npx create-awesome-node-app my-app --template react-vite-boilerplate --addons material-ui
-                      github-setup
+                      create-vlang-app my-app --template web-server --addons v-docker github-setup
                     </code>
                   </pre>
                 </div>
@@ -280,7 +276,7 @@ export default function DocsPage() {
                 <p className="font-medium">List all available templates:</p>
                 <div className="rounded-md bg-muted p-4 mt-2">
                   <pre className="text-sm">
-                    <code>npx create-awesome-node-app --list-templates</code>
+                    <code>create-vlang-app --list-templates</code>
                   </pre>
                 </div>
               </div>
@@ -289,7 +285,7 @@ export default function DocsPage() {
                 <p className="font-medium">List all available extensions:</p>
                 <div className="rounded-md bg-muted p-4 mt-2">
                   <pre className="text-sm">
-                    <code>npx create-awesome-node-app --list-addons</code>
+                    <code>create-vlang-app --list-addons</code>
                   </pre>
                 </div>
               </div>
@@ -300,13 +296,13 @@ export default function DocsPage() {
 
           <section className="space-y-4">
             <h2 className="text-2xl font-bold tracking-tight">Available Templates</h2>
-            <p>create-awesome-node-app offers a variety of templates for different types of applications:</p>
+            <p>create-vlang-app offers a variety of templates for different types of applications:</p>
 
             <div className="rounded-lg border bg-muted/40 p-6 flex items-center justify-between">
               <div>
-                <p className="font-semibold">10 production-ready templates</p>
+                <p className="font-semibold">Wave-1 V templates</p>
                 <p className="text-sm text-muted-foreground mt-1">
-                  Frontend, backend, fullstack, monorepo, testing, and web extension starters.
+                  Web servers, CLIs, libraries, and systems apps from cva-templates.
                 </p>
               </div>
               <Button asChild>
@@ -324,7 +320,7 @@ export default function DocsPage() {
               <Card>
                 <CardHeader className="pb-2">
                   <CardTitle>Installation</CardTitle>
-                  <CardDescription>npm, Homebrew, AUR, and Docker install options</CardDescription>
+                  <CardDescription>VPM, GitHub Releases, Homebrew, and Docker install options</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <Button asChild className="w-full">

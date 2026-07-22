@@ -1,4 +1,4 @@
-import { ArrowLeft, ArrowRight, Globe, Layers, Package, Server, Settings, Terminal, Wrench, Zap } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Globe, Layers, Package, Server, Settings, Terminal, Zap } from 'lucide-react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 
@@ -7,28 +7,25 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { getTemplatesData } from '@/lib/data';
 
 export const metadata: Metadata = {
-  title: 'Templates | Create Awesome Node App Documentation',
-  description: 'Learn about the available project templates and how to use them with create-awesome-node-app.',
+  title: 'Templates | Create Vlang App Documentation',
+  description: 'Learn about the available project templates and how to use them with create-vlang-app.',
   alternates: { canonical: '/docs/templates' },
   openGraph: {
-    title: 'Templates | Create Awesome Node App Documentation',
-    description: 'Learn about the available project templates and how to use them with create-awesome-node-app.',
+    title: 'Templates | Create Vlang App Documentation',
+    description: 'Learn about the available project templates and how to use them with create-vlang-app.',
     url: '/docs/templates',
     type: 'article',
   },
 };
 
 const typeIcons: Record<string, React.ReactNode> = {
-  'nestjs-backend': <Server className="h-5 w-5 text-primary" />,
-  nextjs: <Layers className="h-5 w-5 text-primary" />,
-  monorepo: <Settings className="h-5 w-5 text-primary" />,
-  react: <Terminal className="h-5 w-5 text-primary" />,
-  'webextension-react': <Wrench className="h-5 w-5 text-primary" />,
-  webdriverio: <Package className="h-5 w-5 text-primary" />,
-  'nextjs-saas-ai': <Zap className="h-5 w-5 text-primary" />,
-  remix: <Globe className="h-5 w-5 text-primary" />,
-  astro: <Globe className="h-5 w-5 text-primary" />,
-  hono: <Server className="h-5 w-5 text-primary" />,
+  'web-server': <Server className="h-5 w-5 text-primary" />,
+  'cli-app': <Terminal className="h-5 w-5 text-primary" />,
+  library: <Package className="h-5 w-5 text-primary" />,
+  'systems-app': <Settings className="h-5 w-5 text-primary" />,
+  'vsl-starter': <Zap className="h-5 w-5 text-primary" />,
+  'vtl-starter': <Globe className="h-5 w-5 text-primary" />,
+  'rxv-starter': <Layers className="h-5 w-5 text-primary" />,
 };
 
 export default async function DocsTemplatesPage() {
@@ -41,8 +38,8 @@ export default async function DocsTemplatesPage() {
         <div className="space-y-2">
           <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">Templates</h1>
           <p className="text-lg text-muted-foreground">
-            Project templates are the starting point for every <code>create-awesome-node-app</code> project. Each
-            template is a complete, production-ready project skeleton for a specific technology stack.
+            Project templates are the starting point for every <code>create-vlang-app</code> project. Each template is a
+            complete, production-ready <code>v.mod</code> skeleton for a specific V stack.
           </p>
         </div>
 
@@ -50,42 +47,41 @@ export default async function DocsTemplatesPage() {
           <section id="what-is-a-template" className="space-y-4">
             <h2 className="text-2xl font-bold tracking-tight">What is a template?</h2>
             <p>
-              A template provides the initial directory structure, configuration files, and tooling for a new project.
-              When you run <code>create-awesome-node-app</code>, you pick a template and optionally layer{' '}
+              A template provides the initial directory structure, <code>v.mod</code>, configuration files, and tooling
+              for a new project. When you run <code>create-vlang-app</code>, you pick a template and optionally layer{' '}
               <Link href="/docs/extensions" className="text-primary hover:underline">
                 extensions
               </Link>{' '}
-              on top of it to add functionality like state management, testing, or UI libraries.
+              on top to add Docker, CI, database overlays, or fmt/vet hooks.
             </p>
 
             <div className="rounded-md bg-muted p-4">
               <pre className="text-sm overflow-x-auto">
-                <code>npx create-awesome-node-app my-app --template react-vite-boilerplate</code>
+                <code>create-vlang-app my-app --template web-server</code>
               </pre>
             </div>
 
             <p>
-              Each template ships with an <code>AGENTS.md</code> file that scopes how AI coding assistants interact with
-              the generated repository.{' '}
-              <Link href="/docs/agents-md" className="text-primary hover:underline">
-                Learn more about AGENTS.md →
-              </Link>
+              Wave-1 templates include <code>web-server</code>, <code>cli-app</code>, <code>library-starter</code>, and{' '}
+              <code>systems-app</code>. Growth templates such as <code>vsl-starter</code>, <code>vtl-starter</code>, and{' '}
+              <code>rxv-starter</code> land after the core CLI stabilizes.
             </p>
           </section>
 
           <section id="available-templates" className="space-y-4">
             <h2 className="text-2xl font-bold tracking-tight">Available templates</h2>
             <p>
-              The following templates are maintained in the{' '}
+              Templates are maintained in{' '}
               <a
-                href="https://github.com/Create-Node-App/cna-templates"
+                href="https://github.com/Create-Vlang-App/cva-templates"
                 target="_blank"
                 rel="noreferrer"
                 className="text-primary hover:underline"
               >
-                cna-templates
-              </a>{' '}
-              repository. There are currently <strong>{templates.length} templates</strong> available.
+                cva-templates
+              </a>
+              . There are currently <strong>{templates.length} templates</strong> in the catalog (fallback data shown
+              when the remote JSON is unavailable).
             </p>
 
             <div className="grid gap-4 md:grid-cols-2 mt-4">
@@ -127,26 +123,19 @@ export default async function DocsTemplatesPage() {
             <div className="space-y-6">
               <div>
                 <h3 className="text-xl font-semibold mb-2">Interactive mode</h3>
-                <p className="mb-3">
-                  Run without arguments and the CLI will prompt you to pick a template and extensions:
-                </p>
                 <div className="rounded-md bg-muted p-4">
                   <pre className="text-sm">
-                    <code>npx create-awesome-node-app my-app --interactive</code>
+                    <code>create-vlang-app my-app --interactive</code>
                   </pre>
                 </div>
               </div>
 
               <div>
                 <h3 className="text-xl font-semibold mb-2">Non-interactive mode</h3>
-                <p className="mb-3">
-                  Pass <code>--template</code> (and optionally <code>--addons</code>) to skip prompts:
-                </p>
                 <div className="rounded-md bg-muted p-4">
                   <pre className="text-sm overflow-x-auto">
                     <code>
-                      npx create-awesome-node-app my-app --template react-vite-boilerplate --addons react-zustand
-                      react-testing-library-with-vitest
+                      create-vlang-app my-api --template web-server --addons v-docker github-setup --no-interactive
                     </code>
                   </pre>
                 </div>
@@ -156,7 +145,7 @@ export default async function DocsTemplatesPage() {
                 <h3 className="text-xl font-semibold mb-2">List all templates</h3>
                 <div className="rounded-md bg-muted p-4">
                   <pre className="text-sm">
-                    <code>npx create-awesome-node-app --list-templates</code>
+                    <code>create-vlang-app --list-templates</code>
                   </pre>
                 </div>
               </div>
@@ -166,26 +155,19 @@ export default async function DocsTemplatesPage() {
           <section id="template-structure" className="space-y-4">
             <h2 className="text-2xl font-bold tracking-tight">Template structure</h2>
             <p>
-              Every template lives in the <code>templates/</code> directory of the cna-templates repository and follows
-              this layout:
+              Every template lives under <code>templates/</code> in the cva-templates repository:
             </p>
             <div className="rounded-md bg-muted p-4">
               <pre className="text-sm overflow-x-auto">
                 {`templates/
-└── your-template-name/
-    ├── src/              # Source code
-    ├── public/           # Static assets (frontend templates)
-    ├── .gitignore
-    ├── package.json
+└── web-server/
+    ├── src/              # Application source
+    ├── v.mod             # Module metadata and dependencies
+    ├── cva.config.json   # Optional scaffold config
     ├── README.md
-    ├── AGENTS.md         # AI assistant contract
-    └── tsconfig.json`}
+    └── AGENTS.md         # AI assistant contract`}
               </pre>
             </div>
-            <p>
-              Template files can use EJS-style template tags (<code>{'<%= variable %>'}</code>) to inject values
-              collected during project creation (e.g. project name, src directory).
-            </p>
           </section>
 
           <div className="flex flex-col gap-2 min-[400px]:flex-row mt-8">
