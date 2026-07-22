@@ -21,17 +21,17 @@ describe('validateTemplate', () => {
 
   it('should return data for valid template', () => {
     const validData = {
-      name: 'React Vite Starter',
-      description: 'A fast React boilerplate.',
-      url: 'https://github.com/Create-Node-App/cna-templates/tree/main/templates/react-vite-starter',
-      type: 'react',
-      category: 'frontend-applications',
-      labels: ['React', 'Vite'],
-      slug: 'react-vite-starter',
+      name: 'Web Server Starter',
+      description: 'A vweb HTTP server starter.',
+      url: 'https://github.com/Create-Vlang-App/cva-templates?subdir=templates/web-server',
+      type: 'web-server',
+      category: 'web-applications',
+      labels: ['V', 'vweb'],
+      slug: 'web-server',
     };
     const result = validateTemplate(validData);
     expect(result).not.toBeNull();
-    expect(result?.name).toBe('React Vite Starter');
+    expect(result?.name).toBe('Web Server Starter');
   });
 });
 
@@ -43,17 +43,17 @@ describe('validateExtension', () => {
 
   it('should return data for valid extension', () => {
     const validData = {
-      name: 'Tailwind CSS',
-      description: 'Add Tailwind CSS.',
-      url: 'https://github.com/Create-Node-App/cna-templates/tree/main/extensions/react-tailwindcss',
-      type: 'react',
-      category: 'UI',
-      labels: ['Tailwind'],
-      slug: 'tailwind-css',
+      name: 'V Docker',
+      description: 'Add Docker packaging.',
+      url: 'https://github.com/Create-Vlang-App/cva-templates?subdir=extensions/v-docker',
+      type: 'web-server',
+      category: 'containers',
+      labels: ['Docker'],
+      slug: 'v-docker',
     };
     const result = validateExtension(validData);
     expect(result).not.toBeNull();
-    expect(result?.name).toBe('Tailwind CSS');
+    expect(result?.name).toBe('V Docker');
   });
 });
 

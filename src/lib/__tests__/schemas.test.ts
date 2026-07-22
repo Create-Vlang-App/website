@@ -25,13 +25,13 @@ describe('categorySchema', () => {
 describe('templateSchema', () => {
   it('should validate a valid template', () => {
     const validTemplate = {
-      name: 'React Vite Starter',
-      description: 'A fast React boilerplate with Vite.',
-      url: 'https://github.com/Create-Node-App/cna-templates/tree/main/templates/react-vite-starter',
-      type: 'react',
-      category: 'frontend-applications',
-      labels: ['React', 'Vite', 'TypeScript'],
-      slug: 'react-vite-starter',
+      name: 'Web Server',
+      description: 'A vweb HTTP server starter.',
+      url: 'https://github.com/Create-Vlang-App/cva-templates?subdir=templates/web-server',
+      type: 'web-server',
+      category: 'web-applications',
+      labels: ['V', 'vweb'],
+      slug: 'web-server',
     };
     expect(templateSchema.safeParse(validTemplate).success).toBe(true);
   });
@@ -53,13 +53,13 @@ describe('templateSchema', () => {
 describe('extensionSchema', () => {
   it('should validate a valid extension with string type', () => {
     const validExtension = {
-      name: 'Tailwind CSS',
-      description: 'Add Tailwind CSS.',
-      url: 'https://github.com/Create-Node-App/cna-templates/tree/main/extensions/react-tailwindcss',
-      type: 'react',
-      category: 'UI',
-      labels: ['Tailwind', 'CSS'],
-      slug: 'tailwind-css',
+      name: 'V Docker',
+      description: 'Add Docker packaging.',
+      url: 'https://github.com/Create-Vlang-App/cva-templates?subdir=extensions/v-docker',
+      type: 'web-server',
+      category: 'containers',
+      labels: ['Docker', 'DevOps'],
+      slug: 'v-docker',
     };
     expect(extensionSchema.safeParse(validExtension).success).toBe(true);
   });
@@ -68,7 +68,7 @@ describe('extensionSchema', () => {
     const validExtension = {
       name: 'GitHub Setup',
       description: 'Add GitHub automation.',
-      url: 'https://github.com/Create-Node-App/cna-templates/tree/main/extensions/all-github-setup',
+      url: 'https://github.com/Create-Vlang-App/cva-templates?subdir=extensions/github-setup',
       type: ['react', 'nextjs', 'backend'],
       category: 'Tooling',
       labels: ['GitHub', 'CI/CD'],

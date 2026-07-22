@@ -1,21 +1,21 @@
 {
-  "name": "create-node-app",
+  "name": "create-vlang-app-website-danger",
   "version": "1.0.0",
-  "description": "",
+  "description": "Danger automation for Create-Vlang-App/website",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Create-Node-App/create-node-app.git"
+    "url": "git+https://github.com/Create-Vlang-App/website.git"
   },
   "author": "ulises-jeremias",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Create-Node-App/create-node-app/issues"
+    "url": "https://github.com/Create-Vlang-App/website/issues"
   },
-  "homepage": "https://github.com/Create-Node-App/create-node-app#readme",
+  "homepage": "https://github.com/Create-Vlang-App/website#readme",
   "dependencies": {
     "danger": "^13.0.10"
   },
