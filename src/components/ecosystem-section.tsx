@@ -24,28 +24,28 @@ interface EcosystemEntry {
 
 const ECOSYSTEM: EcosystemEntry[] = [
   {
-    name: 'Create Node App',
-    slug: 'create-node-app',
+    name: 'Create Vlang App',
+    slug: 'create-vlang-app',
     description:
-      'The original. 10 templates and 51 extensions for the full Node.js ecosystem — React, NestJS, Next.js, Remix, Astro, Hono, and more.',
-    status: 'production',
-    href: 'https://github.com/Create-Node-App',
+      'Composition-first scaffolding for V — web servers, CLIs, libraries, and systems apps with v fmt/vet and VPM.',
+    status: 'beta',
+    href: 'https://create-vlang-app.vercel.app',
     colors: {
-      node1: '#f59e0b',
-      node2: '#0d9488',
-      gradStart: '#f59e0b',
-      gradEnd: '#0d9488',
-      glow: 'rgba(245,158,11,0.15)',
-      border: 'hsl(var(--primary)/0.25)',
-      badge: 'hsl(var(--primary)/0.12)',
-      badgeText: 'hsl(var(--primary))',
+      node1: '#a78bfa',
+      node2: '#06b6d4',
+      gradStart: '#a78bfa',
+      gradEnd: '#06b6d4',
+      glow: 'rgba(167,139,250,0.12)',
+      border: 'rgba(167,139,250,0.25)',
+      badge: 'rgba(167,139,250,0.12)',
+      badgeText: '#c4b5fd',
     },
   },
   {
     name: 'Create Python App',
     slug: 'create-python-app',
     description:
-      'Composition-first scaffolding for Python — FastAPI, Django, Celery, CLIs, and uv workspaces. Public Beta — live at create-awesome-python-app.vercel.app.',
+      'Composition-first scaffolding for Python — FastAPI, Django, Celery, CLIs, and uv workspaces.',
     status: 'beta',
     href: 'https://create-awesome-python-app.vercel.app',
     colors: {
@@ -60,21 +60,21 @@ const ECOSYSTEM: EcosystemEntry[] = [
     },
   },
   {
-    name: 'Create Vlang App',
-    slug: 'create-vlang-app',
+    name: 'Create Node App',
+    slug: 'create-node-app',
     description:
-      'Scaffolding for the V language — by a V core team member and author of vsl, vtl, rxv, and setup-v. Coming soon.',
-    status: 'planned',
-    href: 'https://github.com/Create-Vlang-App',
+      'The original. Templates and extensions for the full Node.js ecosystem — React, NestJS, Next.js, and more.',
+    status: 'production',
+    href: 'https://github.com/Create-Node-App',
     colors: {
-      node1: '#a78bfa',
-      node2: '#06b6d4',
-      gradStart: '#a78bfa',
-      gradEnd: '#06b6d4',
-      glow: 'rgba(167,139,250,0.12)',
-      border: 'rgba(167,139,250,0.25)',
-      badge: 'rgba(167,139,250,0.12)',
-      badgeText: '#c4b5fd',
+      node1: '#f59e0b',
+      node2: '#0d9488',
+      gradStart: '#f59e0b',
+      gradEnd: '#0d9488',
+      glow: 'rgba(245,158,11,0.15)',
+      border: 'rgba(245,158,11,0.25)',
+      badge: 'rgba(245,158,11,0.12)',
+      badgeText: '#fbbf24',
     },
   },
 ];
@@ -89,7 +89,6 @@ function NodeGraphIcon({ colors }: { colors: EcosystemEntry['colors'] }) {
           <stop offset="100%" stopColor={colors.gradEnd} />
         </linearGradient>
       </defs>
-      {/* Edges */}
       <line
         x1="11"
         y1="14"
@@ -120,16 +119,18 @@ function NodeGraphIcon({ colors }: { colors: EcosystemEntry['colors'] }) {
         strokeWidth="1.5"
         strokeLinecap="round"
       />
-      {/* Top-left node */}
       <circle cx="9" cy="12" r="5" fill={colors.node1} fillOpacity="0.85" />
-      {/* Top-right node */}
       <circle cx="35" cy="12" r="5" fill={colors.node2} fillOpacity="0.85" />
-      {/* Center node (main) */}
       <circle cx="22" cy="24" r="7" fill={`url(#${id})`} />
-      {/* Bottom node */}
       <circle cx="22" cy="38" r="4" fill={colors.node2} fillOpacity="0.7" />
     </svg>
   );
+}
+
+function statusLabel(status: EcosystemEntry['status']) {
+  if (status === 'production') return '✅ Production';
+  if (status === 'beta') return '🧪 Beta';
+  return '🔜 Planned';
 }
 
 export function EcosystemSection() {
@@ -143,13 +144,29 @@ export function EcosystemSection() {
           </div>
           <h2 className="font-display text-3xl font-bold tracking-tight sm:text-4xl">
             One philosophy.{' '}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary via-amber-400 to-[hsl(var(--brand-teal))] animate-gradient-text">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary via-violet-400 to-cyan-400 animate-gradient-text">
               Any language.
             </span>
           </h2>
           <p className="max-w-2xl text-muted-foreground md:text-lg">
-            The composition-first scaffolding approach spans ecosystems. Start with Node.js today — Python is in public
-            Beta, and V is on the way.
+            The composition-first scaffolding approach spans ecosystems. Start with V today — explore{' '}
+            <a href="https://github.com/vlang/vsl" className="text-primary hover:underline" target="_blank" rel="noreferrer">
+              vsl
+            </a>
+            ,{' '}
+            <a href="https://github.com/vlang/vtl" className="text-primary hover:underline" target="_blank" rel="noreferrer">
+              vtl
+            </a>
+            , and{' '}
+            <a
+              href="https://github.com/ulises-jeremias/rxv"
+              className="text-primary hover:underline"
+              target="_blank"
+              rel="noreferrer"
+            >
+              rxv
+            </a>{' '}
+            growth templates as they land.
           </p>
         </div>
 
@@ -160,7 +177,6 @@ export function EcosystemSection() {
               className="relative overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
               style={{ borderColor: entry.colors.border }}
             >
-              {/* Top accent bar */}
               <div
                 className="absolute top-0 left-0 right-0 h-0.5"
                 style={{
@@ -178,11 +194,7 @@ export function EcosystemSection() {
                       color: entry.colors.badgeText,
                     }}
                   >
-                    {entry.status === 'production'
-                      ? '✅ Production'
-                      : entry.status === 'beta'
-                        ? '🧪 Beta'
-                        : '🔜 Planned'}
+                    {statusLabel(entry.status)}
                   </span>
                 </div>
                 <CardTitle className="text-base font-display mt-2">{entry.name}</CardTitle>

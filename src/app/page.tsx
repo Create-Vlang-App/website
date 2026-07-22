@@ -16,23 +16,25 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { getTemplatesData } from '@/lib/data';
 
-const PRIMARY_COMMAND = 'npm create awesome-node-app@latest my-app';
+const PRIMARY_COMMAND = 'create-vlang-app my-app';
 
 export default async function Home() {
   const { templates, categories } = await getTemplatesData();
 
-  const saasTemplate = templates.find((t) => t.slug === 'nextjs-saas-ai-starter');
-  const otherTemplates = templates.filter((t) => t.slug !== 'nextjs-saas-ai-starter');
-  const featuredTemplates = saasTemplate ? [saasTemplate, ...otherTemplates].slice(0, 3) : templates.slice(0, 3);
+  const flagshipTemplate = templates.find((t) => t.slug === 'web-server');
+  const otherTemplates = templates.filter((t) => t.slug !== 'web-server');
+  const featuredTemplates = flagshipTemplate
+    ? [flagshipTemplate, ...otherTemplates].slice(0, 3)
+    : templates.slice(0, 3);
 
   return (
     <div className="flex min-h-screen flex-col">
       <main className="flex-1">
         <AnnouncementBanner
           message={
-            <>New: Next.js SaaS AI Starter — multi-tenant SaaS with AI, Auth.js v5, Drizzle + pgvector, and more.</>
+            <>New: Web Server — vweb/veb HTTP starter with v fmt/vet, v test, and composable V extensions.</>
           }
-          ctaHref="/templates/nextjs-saas-ai-starter"
+          ctaHref="/templates/web-server"
           ctaLabel="Explore template"
         />
         <HeroSection
@@ -43,13 +45,13 @@ export default async function Home() {
               <span className="text-gradient-primary animate-gradient-text">in one command.</span>
             </>
           }
-          description="Choose a template, add addons, and ship a production-ready Node, Web, or AI-ready app from a cozy developer workbench."
+          description="Choose a template, add extensions, and ship a production-ready V web server, CLI, or library from a cozy developer workbench."
           actions={
             <>
               <CopyButton
                 command={PRIMARY_COMMAND}
                 size="lg"
-                className="bg-gradient-to-r from-primary to-teal-600 hover:from-primary/90 hover:to-teal-600/90 glow transition-all duration-300 text-primary-foreground"
+                className="bg-gradient-to-r from-primary to-violet-600 hover:from-primary/90 hover:to-violet-600/90 glow transition-all duration-300 text-primary-foreground"
               />
               <Button
                 size="lg"
@@ -78,11 +80,11 @@ export default async function Home() {
                 <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm backdrop-blur-sm">
                   Featured templates
                 </div>
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl bg-clip-text text-transparent bg-gradient-to-r from-primary to-teal-600">
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl bg-clip-text text-transparent bg-gradient-to-r from-primary to-violet-600">
                   Start with a solid foundation
                 </h2>
                 <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed">
-                  Curated starters for frontend, full-stack, and SaaS — not a dump of every option.
+                  Curated starters for web servers, CLIs, and libraries — not a dump of every option.
                 </p>
               </div>
             </div>
@@ -129,7 +131,7 @@ export default async function Home() {
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
                 <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">Categories</div>
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl bg-clip-text text-transparent bg-gradient-to-r from-primary to-teal-600">
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl bg-clip-text text-transparent bg-gradient-to-r from-primary to-violet-600">
                   Find your stack
                 </h2>
                 <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed">
@@ -154,7 +156,7 @@ export default async function Home() {
                   <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm backdrop-blur-sm">
                     How it works
                   </div>
-                  <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl bg-clip-text text-transparent bg-gradient-to-r from-primary to-teal-600">
+                  <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl bg-clip-text text-transparent bg-gradient-to-r from-primary to-violet-600">
                     Compose, then generate
                   </h2>
                   <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed">
@@ -179,23 +181,23 @@ export default async function Home() {
                 <Card className="w-full backdrop-blur-sm bg-card/50 border-primary/10 gradient-border-subtle">
                   <CardHeader>
                     <CardTitle>Create your project</CardTitle>
-                    <CardDescription>Use the CLI to generate your app</CardDescription>
+                    <CardDescription>Use the CLI to generate your V app</CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-3">
                     <div className="bg-muted rounded-md p-4 font-mono text-sm overflow-x-auto">
-                      <p className="text-teal-700 dark:text-teal-300">$ npm create awesome-node-app@latest my-app \</p>
-                      <p className="pl-4">--template react-vite-boilerplate \</p>
-                      <p className="pl-4">--addons tailwind-css zustand github-setup</p>
+                      <p className="text-violet-700 dark:text-violet-300">$ create-vlang-app my-app \</p>
+                      <p className="pl-4">--template web-server \</p>
+                      <p className="pl-4">--addons v-docker github-setup</p>
                     </div>
                     <CopyButton
-                      command="npm create awesome-node-app@latest my-app -- --template react-vite-boilerplate --addons tailwind-css zustand github-setup --no-interactive"
+                      command="create-vlang-app my-app --template web-server --addons v-docker github-setup --no-interactive"
                       variant="outline"
                       className="w-full"
                     />
                   </CardContent>
                   <CardFooter>
                     <p className="text-sm text-muted-foreground">
-                      Generates a React app with Tailwind, Zustand, GitHub setup, and AI-ready conventions when enabled.
+                      Generates a vweb server with Docker packaging, setup-v CI, and V-native fmt/vet hooks.
                     </p>
                   </CardFooter>
                 </Card>
@@ -212,7 +214,7 @@ export default async function Home() {
           <div className="container px-4 md:px-6 relative z-10">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl bg-clip-text text-transparent bg-gradient-to-r from-primary to-teal-600 animate-gradient-text">
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl bg-clip-text text-transparent bg-gradient-to-r from-primary to-violet-600 animate-gradient-text">
                   Ready when you are
                 </h2>
                 <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed">
@@ -223,7 +225,7 @@ export default async function Home() {
                 <CopyButton
                   command={PRIMARY_COMMAND}
                   size="lg"
-                  className="bg-gradient-to-r from-primary to-teal-600 hover:from-primary/90 hover:to-teal-600/90 glow transition-all duration-300 text-primary-foreground"
+                  className="bg-gradient-to-r from-primary to-violet-600 hover:from-primary/90 hover:to-violet-600/90 glow transition-all duration-300 text-primary-foreground"
                 />
                 <Button
                   size="lg"
