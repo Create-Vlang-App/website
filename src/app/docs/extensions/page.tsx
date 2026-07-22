@@ -1,19 +1,4 @@
-import {
-  ArrowLeft,
-  ArrowRight,
-  Cloud,
-  Code,
-  Database,
-  Globe,
-  Layers,
-  Monitor,
-  Package,
-  Palette,
-  Shield,
-  TestTube,
-  Wrench,
-  Zap,
-} from 'lucide-react';
+import { ArrowLeft, ArrowRight, Cloud, Code, Container, Database, Monitor, Terminal, Wrench } from 'lucide-react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 
@@ -23,12 +8,12 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 export const metadata: Metadata = {
   title: 'Extensions | Create Vlang App Documentation',
   description:
-    'Learn about extensions and how to add features like state management, testing, and UI libraries to your project.',
+    'Learn about extensions and how to add Docker, databases, setup-v CI, fmt/vet hooks, and Dev Containers to your V project.',
   alternates: { canonical: '/docs/extensions' },
   openGraph: {
     title: 'Extensions | Create Vlang App Documentation',
     description:
-      'Learn about extensions and how to add features like state management, testing, and UI libraries to your project.',
+      'Learn about extensions and how to add Docker, databases, setup-v CI, fmt/vet hooks, and Dev Containers to your V project.',
     url: '/docs/extensions',
     type: 'article',
   },
@@ -36,76 +21,46 @@ export const metadata: Metadata = {
 
 const categories = [
   {
-    name: 'UI',
-    description: 'Component libraries and design systems.',
-    icon: <Palette className="h-5 w-5 text-primary" />,
-    examples: ['Material UI', 'Tailwind CSS', 'Shadcn/UI', 'Semantic UI', 'Mantine'],
-  },
-  {
-    name: 'State Management',
-    description: 'Client-side state solutions.',
-    icon: <Layers className="h-5 w-5 text-primary" />,
-    examples: ['Zustand', 'Redux Toolkit', 'Recoil', 'Jotai'],
-  },
-  {
-    name: 'Testing',
-    description: 'Unit, integration, and end-to-end testing setups.',
-    icon: <TestTube className="h-5 w-5 text-primary" />,
-    examples: ['Vitest + Testing Library', 'Jest + Testing Library', 'Playwright'],
+    name: 'Containers',
+    description: 'Docker images, Compose stacks, and Dev Containers for V toolchains.',
+    icon: <Container className="h-5 w-5 text-primary" />,
+    examples: ['v-docker', 'development-container'],
   },
   {
     name: 'Database',
-    description: 'ORM, database adapters, and data persistence utilities.',
+    description: 'SQLite and Postgres overlays with env samples and compose services.',
     icon: <Database className="h-5 w-5 text-primary" />,
-    examples: ['Drizzle + PostgreSQL', 'Drizzle + SQLite', 'Mongoose', 'Prisma'],
+    examples: ['v-sqlite', 'v-postgres'],
   },
   {
-    name: 'Data Fetching',
-    description: 'API and data synchronization layers.',
-    icon: <Zap className="h-5 w-5 text-primary" />,
-    examples: ['React Query', 'Apollo Client', 'SWR', 'tRPC'],
-  },
-  {
-    name: 'Auth',
-    description: 'Authentication and authorization integrations.',
-    icon: <Shield className="h-5 w-5 text-primary" />,
-    examples: ['NextAuth.js', 'Clerk', 'Auth0', 'Supabase Auth'],
+    name: 'CI & GitHub',
+    description: 'GitHub Actions workflows using vlang/setup-v.',
+    icon: <Cloud className="h-5 w-5 text-primary" />,
+    examples: ['github-setup'],
   },
   {
     name: 'Tooling',
-    description: 'Developer experience and workflow extensions.',
+    description: 'Format, vet, and local quality gates for V projects.',
     icon: <Wrench className="h-5 w-5 text-primary" />,
-    examples: ['Storybook', 'GitHub Setup', 'Million.js', 'Electron'],
+    examples: ['v-fmt-vet'],
   },
   {
-    name: 'Deployment',
-    description: 'Hosting, CI/CD, and infrastructure configurations.',
-    icon: <Cloud className="h-5 w-5 text-primary" />,
-    examples: ['Vercel', 'Docker', 'GitHub Actions', 'Serverless'],
+    name: 'Developer Experience',
+    description: 'Remote development environments with the V compiler.',
+    icon: <Terminal className="h-5 w-5 text-primary" />,
+    examples: ['development-container'],
   },
   {
-    name: 'Monitoring',
-    description: 'Error tracking, logging, and observability.',
-    icon: <Monitor className="h-5 w-5 text-primary" />,
-    examples: ['Sentry', 'OpenTelemetry', 'Datadog', 'LogRocket'],
-  },
-  {
-    name: 'Localization',
-    description: 'Internationalization and translation tooling.',
-    icon: <Globe className="h-5 w-5 text-primary" />,
-    examples: ['i18next', 'react-intl', 'next-intl', 'Lingui'],
-  },
-  {
-    name: 'API',
-    description: 'API clients, code generation, and integration utilities.',
+    name: 'Web & Systems',
+    description: 'Add-ons commonly paired with web-server, cli-app, and systems-app starters.',
     icon: <Code className="h-5 w-5 text-primary" />,
-    examples: ['Axios', 'Ky', 'OpenAPI Generator', 'GraphQL Codegen'],
+    examples: ['v-docker', 'v-postgres', 'github-setup'],
   },
   {
-    name: 'Cross Platform',
-    description: 'Extensions targeting multiple platforms simultaneously.',
-    icon: <Package className="h-5 w-5 text-primary" />,
-    examples: ['Electron', 'Tauri', 'Capacitor', 'React Native Web'],
+    name: 'Quality',
+    description: 'Hooks and Makefile targets for fmt/vet before commit.',
+    icon: <Monitor className="h-5 w-5 text-primary" />,
+    examples: ['v-fmt-vet'],
   },
 ];
 
@@ -120,7 +75,7 @@ export default function DocsExtensionsPage() {
             <Link href="/docs/templates" className="text-primary hover:underline">
               template
             </Link>{' '}
-            to layer in additional features — UI libraries, state management, testing setups, and more.
+            to layer in Docker packaging, databases, setup-v CI, fmt/vet hooks, and more.
           </p>
         </div>
 
@@ -128,22 +83,19 @@ export default function DocsExtensionsPage() {
           <section id="what-is-an-extension" className="space-y-4">
             <h2 className="text-2xl font-bold tracking-tight">What is an extension?</h2>
             <p>
-              An extension is a self-contained package that adds files, dependencies, and scripts to a scaffolded
-              project. Extensions are composable: you can apply multiple compatible extensions in a single command and
-              they are merged intelligently.
+              An extension is a self-contained package that overlays a <code>template/</code> tree (and optional
+              metadata) onto a scaffolded V project. Extensions are composable: you can apply multiple compatible
+              extensions in a single command and they are merged intelligently.
             </p>
             <p>
-              Each extension declares which template <strong>types</strong> it is compatible with (e.g.{' '}
-              <code>react</code>, <code>nestjs-backend</code>), so the CLI only shows you relevant options for your
-              chosen template.
+              Each extension may declare which templates it is compatible with (e.g. <code>web-server</code>,{' '}
+              <code>cli-app</code>, <code>systems-app</code>), so the CLI only shows relevant options for your chosen
+              starter.
             </p>
 
             <div className="rounded-md bg-muted p-4">
               <pre className="text-sm overflow-x-auto">
-                <code>
-                  create-vlang-app my-app --template react-vite-boilerplate --addons react-zustand
-                  react-tailwindcss react-testing-library-with-vitest
-                </code>
+                <code>create-vlang-app my-app --template web-server --addons v-docker github-setup v-fmt-vet</code>
               </pre>
             </div>
           </section>
@@ -151,7 +103,7 @@ export default function DocsExtensionsPage() {
           <section id="extension-categories" className="space-y-4">
             <h2 className="text-2xl font-bold tracking-tight">Extension categories</h2>
             <p>
-              Extensions are organized into <strong>{categories.length} categories</strong> covering the most common
+              Extensions are organized into <strong>{categories.length} categories</strong> covering the most common V
               project needs.
             </p>
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 mt-4">
@@ -190,26 +142,26 @@ export default function DocsExtensionsPage() {
           <section id="how-extensions-work" className="space-y-4">
             <h2 className="text-2xl font-bold tracking-tight">How extensions work</h2>
             <p>
-              When the CLI applies an extension it performs a deep merge of the extension's files and{' '}
-              <code>package.json</code> fields into the scaffolded project:
+              When the CLI applies an extension it merges the extension&apos;s <code>template/</code> overlay into the
+              scaffolded project:
             </p>
 
             <ol className="list-decimal pl-6 space-y-3 mt-2">
               <li>
-                <strong>Files</strong> — source files from the extension are copied or appended to the project.
-                Filenames ending in <code>.template</code> are processed as EJS templates before being written.
+                <strong>Overlay files</strong> — files under the extension&apos;s <code>template/</code> directory are
+                copied onto the project root (same pattern as CNA/CPA).
               </li>
               <li>
-                <strong>Dependencies</strong> — <code>package/dependencies.js</code> and{' '}
-                <code>package/devDependencies.js</code> entries are merged into the project's <code>package.json</code>.
+                <strong>v.mod / docs</strong> — extensions may add Makefile targets, CI workflows, compose files, or{' '}
+                <code>docs/</code> notes without replacing your app entrypoints.
               </li>
               <li>
-                <strong>Scripts</strong> — any <code>scripts</code> defined by the extension are merged with existing
-                scripts.
+                <strong>Compatibility</strong> — optional <code>compatibleWith</code> lists keep database overlays
+                scoped to templates that need them.
               </li>
               <li>
-                <strong>Incompatibilities</strong> — extensions declare <code>incompatibleWith</code> slugs so the CLI
-                prevents conflicting combinations (e.g. two different test runners).
+                <strong>Incompatibilities</strong> — conflicting combinations are rejected when declared by the bank
+                metadata.
               </li>
             </ol>
           </section>
@@ -232,11 +184,10 @@ export default function DocsExtensionsPage() {
               <pre className="text-sm overflow-x-auto">
                 {`extensions/
 └── your-extension-name/
-    ├── [src]/            # Source files merged into the project's src/
-    ├── package/
-    │   ├── dependencies.js       # Runtime deps to add
-    │   └── devDependencies.js    # Dev deps to add
-    ├── package.json      # Extension metadata
+    ├── template/         # Files merged into the generated project
+    │   ├── .github/      # Optional CI workflows
+    │   ├── docs/         # Optional authoring notes
+    │   └── ...
     └── README.md`}
               </pre>
             </div>
@@ -254,7 +205,7 @@ export default function DocsExtensionsPage() {
               <Link href="/extensions" className="text-primary hover:underline">
                 Extensions page
               </Link>
-              , where you can filter by template type and category.
+              , where you can filter by template and category.
             </p>
           </section>
 
