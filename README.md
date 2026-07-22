@@ -52,12 +52,12 @@ pnpm run dev
 
 For most development work, you'll primarily use `pnpm run dev`. However, you have additional scripts at your disposal for various tasks:
 
-| pnpm run <script>  | Description                                                                                         |
-| ------------------ | --------------------------------------------------------------------------------------------------- |
-| `pnpm run dev`     | Starts the local development server for building and previewing your application.                   |
-| `pnpm run format`  | Formats the codebase using [Prettier](https://prettier.io/) to ensure consistent code styling.      |
-| `pnpm run lint`    | Runs linting on the codebase to identify and report on patterns with [eslint](https://eslint.org/). |
-| `pnpm run lint:fix`| Automatically fixes linting errors in the codebase where possible.                                  |
+| pnpm run <script>   | Description                                                                                         |
+| ------------------- | --------------------------------------------------------------------------------------------------- |
+| `pnpm run dev`      | Starts the local development server for building and previewing your application.                   |
+| `pnpm run format`   | Formats the codebase using [Prettier](https://prettier.io/) to ensure consistent code styling.      |
+| `pnpm run lint`     | Runs linting on the codebase to identify and report on patterns with [eslint](https://eslint.org/). |
+| `pnpm run lint:fix` | Automatically fixes linting errors in the codebase where possible.                                  |
 
 ## Production
 
@@ -67,6 +67,26 @@ Scripts for preparing and viewing the production version:
 | ----------------- | -------------------------------------------------------------------------------------------- |
 | `pnpm run start`  | Serves your application using the production setup, ensuring it's ready for deployment.      |
 | `pnpm run build`  | Compiles the application into the `dist/` directory, preparing it for production deployment. |
+
+## Deployment (Vercel)
+
+Production URL (target): [https://create-vlang-app.vercel.app](https://create-vlang-app.vercel.app)
+
+The Vercel CLI was not available in the automation environment used for this repo, so connect the GitHub project manually:
+
+1. Sign in at [vercel.com](https://vercel.com) with a account that can manage the `Create-Vlang-App` org.
+2. **Add New → Project** → import `Create-Vlang-App/website` from GitHub.
+3. Framework preset: **Next.js** (defaults are fine). Build command: `pnpm run build`. Output: Next default.
+4. Deploy, then open **Project Settings → Domains** and assign `create-vlang-app.vercel.app` (or confirm the auto-generated `.vercel.app` alias).
+5. Optional CLI linking (when `vercel` is installed and authenticated):
+
+```sh
+pnpm dlx vercel login
+pnpm dlx vercel link --project create-vlang-app
+pnpm dlx vercel --prod
+```
+
+After the first production deploy succeeds, set the GitHub repository homepage to the live URL (see issue #8).
 
 ## Contributing
 
