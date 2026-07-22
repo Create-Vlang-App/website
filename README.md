@@ -21,24 +21,18 @@
 
 ## Install the CLI
 
-Prefer the GitHub Release binary (linux amd64) from [`create-vlang-app@0.1.0`](https://github.com/Create-Vlang-App/create-vlang-app/releases/tag/create-vlang-app%400.1.0):
-
 ```bash
-curl -fsSL -o create-vlang-app \
-  "https://github.com/Create-Vlang-App/create-vlang-app/releases/download/create-vlang-app%400.1.0/create-vlang-app-linux-x86_64"
-chmod +x create-vlang-app
-sudo mv create-vlang-app /usr/local/bin/
-
-create-vlang-app my-app --template web-server --addons github-setup
+curl -fsSL https://create-awesome-vlang-app.vercel.app/install.sh | sh
 ```
 
 Other install paths:
 
-| Channel  | How                                                              |
-| -------- | ---------------------------------------------------------------- |
-| Homebrew | `brew tap Create-Vlang-App/tap && brew install create-vlang-app` |
-| AUR      | `yay -S create-vlang-app`                                        |
-| Source   | `git clone …/create-vlang-app && make build`                     |
+| Channel  | How                                                                      |
+| -------- | ------------------------------------------------------------------------ |
+| wget     | `wget -qO- https://create-awesome-vlang-app.vercel.app/install.sh \| sh` |
+| Homebrew | `brew tap Create-Vlang-App/tap && brew install create-vlang-app`         |
+| AUR      | `yay -S create-vlang-app`                                                |
+| Source   | `git clone …/create-vlang-app && make build`                             |
 
 When published on VPM: `v install create-vlang-app`.
 
