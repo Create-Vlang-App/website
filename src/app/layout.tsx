@@ -3,47 +3,45 @@ import { Inter, Space_Grotesk } from 'next/font/google';
 import type React from 'react';
 import '@/app/globals.css';
 import { LayoutShell } from '@/components/layout-shell';
-import { jsonLdScript, organizationJsonLd, websiteJsonLd } from '@/lib/seo';
-
-const siteUrl = 'https://create-awesome-node-app.vercel.app';
+import { jsonLdScript, organizationJsonLd, SITE_NAME, SITE_URL, websiteJsonLd } from '@/lib/seo';
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Create Awesome Node App',
-    template: '%s | Create Awesome Node App',
+    default: SITE_NAME,
+    template: `%s | ${SITE_NAME}`,
   },
   description:
-    'One command. Any stack. Choose a template, add addons, and ship production-ready Node, Web, and AI-ready apps.',
+    'One command. Any stack. Choose a template, add addons, and ship production-ready V web servers, CLIs, and libraries.',
   keywords: [
-    'node templates',
-    'node.js starter',
-    'create node app',
-    'typescript boilerplate',
-    'next.js template',
-    'nestjs starter',
-    'node extensions',
+    'v templates',
+    'vlang starter',
+    'create vlang app',
+    'v web server',
+    'v cli template',
+    'vpm',
+    'v extensions',
   ],
-  authors: [{ name: 'Create Awesome Node App Team', url: siteUrl }],
-  creator: 'Create Awesome Node App',
-  publisher: 'Create Awesome Node App',
+  authors: [{ name: `${SITE_NAME} Team`, url: SITE_URL }],
+  creator: SITE_NAME,
+  publisher: SITE_NAME,
   openGraph: {
-    title: 'Create Awesome Node App',
-    description: 'One command. Any stack. Compose templates and addons into production-ready Node.js apps.',
-    url: siteUrl,
-    siteName: 'Create Awesome Node App',
+    title: SITE_NAME,
+    description: 'One command. Any stack. Compose templates and addons into production-ready V apps.',
+    url: SITE_URL,
+    siteName: SITE_NAME,
     images: [
       {
         url: '/og-default.png', // raster fallback
         width: 1200,
         height: 630,
-        alt: 'Create Awesome Node App – Templates & Extensions',
+        alt: `${SITE_NAME} – Templates & Extensions`,
       },
       {
         url: '/og-default.svg', // some platforms now support SVG (fallback above covers others)
         width: 1200,
         height: 630,
-        alt: 'Create Awesome Node App – Templates & Extensions',
+        alt: `${SITE_NAME} – Templates & Extensions`,
         type: 'image/svg+xml',
       },
     ],
@@ -52,8 +50,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Create Awesome Node App',
-    description: 'Discover Node.js templates and extensions to accelerate your development workflow.',
+    title: SITE_NAME,
+    description: 'Discover V templates and extensions to accelerate your development workflow.',
     images: ['/og-default.png', '/og-default.svg'],
     creator: '@',
   },

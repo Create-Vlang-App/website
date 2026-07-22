@@ -1,6 +1,7 @@
 {
   "name": "website",
   "version": "0.1.0",
+  "description": "Official marketing and documentation site for Create Vlang App (create-vlang-app)",
   "engines": {
     "node": ">=24.17.0"
   },
