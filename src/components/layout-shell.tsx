@@ -115,6 +115,7 @@ export function LayoutShell({ children }: { children: ReactNode }) {
                   <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">Community</p>
                   <nav className="flex flex-col gap-2">
                     {[
+                      { href: 'https://discord.gg/bR5VyATgka', label: 'Discord Community', external: true },
                       { href: 'https://github.com/Create-Vlang-App', label: 'GitHub Organization', external: true },
                       {
                         href: 'https://github.com/Create-Vlang-App/create-vlang-app',
