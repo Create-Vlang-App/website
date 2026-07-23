@@ -1,15 +1,4 @@
-import {
-  BookOpen,
-  Container,
-  Gauge,
-  Github,
-  Layers,
-  Package,
-  Server,
-  Shield,
-  Terminal,
-  Workflow,
-} from 'lucide-react';
+import { BookOpen, Container, Gauge, Github, Layers, Package, Server, Shield, Terminal, Workflow } from 'lucide-react';
 import Link from 'next/link';
 import { AnimatedGradient } from '@/components/animated-gradient';
 import { Button } from '@/components/ui/button';
@@ -41,7 +30,7 @@ export function SaasAiBanner() {
           <div className="space-y-6">
             <div className="inline-flex items-center gap-2 rounded-full border border-violet-400/30 bg-violet-500/10 px-4 py-1.5 text-sm font-medium text-violet-200 backdrop-blur-sm">
               <span>⚡</span>
-              <span>Flagship Template</span>
+              <span>NEW · Flagship</span>
             </div>
 
             <div className="space-y-3">
@@ -79,11 +68,7 @@ export function SaasAiBanner() {
                 className="border-violet-400/30 bg-white/5 text-slate-200 hover:bg-white/10 hover:border-violet-400/50 backdrop-blur-sm transition-all duration-300"
                 asChild
               >
-                <a
-                  href="https://github.com/Create-Vlang-App/cva-templates"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <a href="https://github.com/Create-Vlang-App/cva-templates" target="_blank" rel="noopener noreferrer">
                   View cva-templates →
                 </a>
               </Button>
