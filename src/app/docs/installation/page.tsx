@@ -7,6 +7,7 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { DISCORD_INVITE_URL } from '@/lib/community';
 
 export const metadata: Metadata = {
   title: 'Installation | Create Vlang App Documentation',
@@ -65,6 +66,22 @@ export default function InstallationPage() {
             Get <code>create-vlang-app</code> (and the <code>create-awesome-vlang-app</code> alias) running in seconds.
           </p>
         </div>
+
+        <Alert>
+          <Terminal className="h-4 w-4" />
+          <AlertTitle>Instalación rápida en español</AlertTitle>
+          <AlertDescription>
+            Instala Create Vlang App con el{' '}
+            <Link href="https://create-awesome-vlang-app.vercel.app/install.sh" className="font-medium underline">
+              script install.sh
+            </Link>{' '}
+            y únete a nuestra{' '}
+            <Link href={DISCORD_INVITE_URL} target="_blank" rel="noreferrer" className="font-medium underline">
+              comunidad de Discord
+            </Link>{' '}
+            si necesitas ayuda.
+          </AlertDescription>
+        </Alert>
 
         <Alert className="border-primary/30 bg-primary/5">
           <CheckCircle className="h-4 w-4 text-primary" />
