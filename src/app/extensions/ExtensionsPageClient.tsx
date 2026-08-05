@@ -124,7 +124,9 @@ export function ExtensionsPageClient() {
             <div className="mx-auto max-w-5xl py-8 fade-in-up-delay-1">
               <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide mb-4">
                 <button
+                  type="button"
                   onClick={() => setSelectedCategory('')}
+                  aria-pressed={selectedCategory === ''}
                   className={cn(
                     'shrink-0 rounded-full px-3 py-1 text-xs font-medium transition-colors',
                     selectedCategory === ''
@@ -136,8 +138,10 @@ export function ExtensionsPageClient() {
                 </button>
                 {extensionCategories.map((cat) => (
                   <button
+                    type="button"
                     key={cat}
                     onClick={() => setSelectedCategory(cat)}
+                    aria-pressed={selectedCategory === cat}
                     className={cn(
                       'shrink-0 rounded-full px-3 py-1 text-xs font-medium transition-colors',
                       selectedCategory === cat
@@ -155,6 +159,7 @@ export function ExtensionsPageClient() {
                   <Input
                     type="search"
                     placeholder="Search extensions..."
+                    aria-label="Search extensions"
                     className="w-full bg-background/50 backdrop-blur-sm pl-8 border-cyan-500/20 focus:border-cyan-500/40 transition-all duration-300"
                     value={searchQuery}
                     onChange={handleSearchChange}
