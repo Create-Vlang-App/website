@@ -108,7 +108,9 @@ export function TemplatesPageClient() {
             <div className="mx-auto max-w-5xl py-4 fade-in-up-delay-1">
               <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide mb-4">
                 <button
+                  type="button"
                   onClick={() => setSelectedCategory('')}
+                  aria-pressed={selectedCategory === ''}
                   className={cn(
                     'shrink-0 rounded-full px-3 py-1 text-xs font-medium transition-colors',
                     selectedCategory === ''
@@ -120,8 +122,10 @@ export function TemplatesPageClient() {
                 </button>
                 {categories.map((cat) => (
                   <button
+                    type="button"
                     key={cat.slug}
                     onClick={() => setSelectedCategory(cat.slug)}
+                    aria-pressed={selectedCategory === cat.slug}
                     className={cn(
                       'shrink-0 rounded-full px-3 py-1 text-xs font-medium transition-colors',
                       selectedCategory === cat.slug
@@ -139,6 +143,7 @@ export function TemplatesPageClient() {
                   <Input
                     type="search"
                     placeholder="Search templates..."
+                    aria-label="Search templates"
                     className="w-full bg-background/50 backdrop-blur-sm pl-8 border-primary/20 focus:border-primary/40 transition-all duration-300"
                     value={searchQuery}
                     onChange={handleSearchChange}
