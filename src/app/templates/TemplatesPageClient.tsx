@@ -122,8 +122,10 @@ export function TemplatesPageClient() {
                 </button>
                 {categories.map((cat) => (
                   <button
+                    type="button"
                     key={cat.slug}
                     onClick={() => setSelectedCategory(cat.slug)}
+                    aria-pressed={selectedCategory === cat.slug}
                     className={cn(
                       'shrink-0 rounded-full px-3 py-1 text-xs font-medium transition-colors',
                       selectedCategory === cat.slug
