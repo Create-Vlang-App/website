@@ -19,7 +19,7 @@ export function catalogStatsFrom(data: TemplatesData): CatalogStats {
 }
 
 /** Upstream catalog still ships `addons`; site schema uses `extensions`. */
-function normalizeCatalogPayload(raw: unknown): unknown {
+export function normalizeCatalogPayload(raw: unknown): unknown {
   if (!raw || typeof raw !== 'object') return raw;
   const record = raw as Record<string, unknown>;
   if (record.extensions == null && Array.isArray(record.addons)) {
