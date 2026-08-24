@@ -54,7 +54,7 @@ export default async function ExtensionPage({ params }: ExtensionPageProps) {
   const softwareJsonLd = extensionSoftwareJsonLd(extension);
   return (
     <div className="flex min-h-screen flex-col">
-      <main className="flex-1">
+      <div className="flex-1">
         <script
           type="application/ld+json"
           // biome-ignore lint/security/noDangerouslySetInnerHtml: data controlado
@@ -66,7 +66,7 @@ export default async function ExtensionPage({ params }: ExtensionPageProps) {
           dangerouslySetInnerHTML={{ __html: jsonLdScript(softwareJsonLd) }}
         />
         <ExtensionDetailsClient extension={extension} compatibleTemplates={compatibleTemplates} />
-      </main>
+      </div>
     </div>
   );
 }

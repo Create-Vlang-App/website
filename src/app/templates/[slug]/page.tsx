@@ -69,7 +69,7 @@ export default async function TemplatePage({ params }: TemplatePageProps) {
 
   return (
     <div className="flex min-h-screen flex-col">
-      <main className="flex-1">
+      <div className="flex-1">
         <script
           type="application/ld+json"
           // biome-ignore lint/security/noDangerouslySetInnerHtml: data controlado
@@ -81,7 +81,7 @@ export default async function TemplatePage({ params }: TemplatePageProps) {
           dangerouslySetInnerHTML={{ __html: jsonLdScript(softwareJsonLd) }}
         />
         <TemplateDetailsClient template={template} compatibleExtensions={compatibleExtensions} />
-      </main>
+      </div>
     </div>
   );
 }

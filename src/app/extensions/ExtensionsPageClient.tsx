@@ -80,7 +80,7 @@ export function ExtensionsPageClient() {
 
   return (
     <div className="flex min-h-screen flex-col">
-      <main className="flex-1">
+      <div className="flex-1">
         <div className="w-full bg-gradient-to-r from-violet-600 via-violet-500 to-cyan-500 text-white py-3 relative">
           <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden>
             <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] animate-pulse" />
@@ -209,7 +209,7 @@ export function ExtensionsPageClient() {
             </div>
           </div>
         </section>
-      </main>
+      </div>
     </div>
   );
 }

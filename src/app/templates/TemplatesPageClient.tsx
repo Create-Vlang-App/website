@@ -83,7 +83,7 @@ export function TemplatesPageClient() {
 
   return (
     <div className="flex min-h-screen flex-col">
-      <main className="flex-1">
+      <div className="flex-1">
         <AnnouncementBanner
           message={
             <>
@@ -197,7 +197,7 @@ export function TemplatesPageClient() {
             </div>
           </div>
         </section>
-      </main>
+      </div>
     </div>
   );
 }

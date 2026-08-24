@@ -32,7 +32,7 @@ export default async function Home() {
 
   return (
     <div className="flex min-h-screen flex-col">
-      <main className="flex-1">
+      <div className="flex-1">
         <AnnouncementBanner
           icon={<CommunityLogo size={20} className="shrink-0 rounded" />}
           label="NEW"
@@ -247,7 +247,7 @@ export default async function Home() {
             </div>
           </div>
         </section>
-      </main>
+      </div>
     </div>
   );
 }

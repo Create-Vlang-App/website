@@ -13,7 +13,7 @@ export const metadata = {
 export default function AgentsMdPage() {
   return (
     <div className="flex min-h-screen flex-col">
-      <main className="flex-1">
+      <div className="flex-1">
         <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-b from-background to-background/80 relative overflow-hidden">
           <div className="absolute inset-0 z-0 opacity-50">
             <AnimatedGradient />
@@ -201,7 +201,7 @@ Humans: stop reading—go to CONTRIBUTING.md + docs/.
             </div>
           </div>
         </section>
-      </main>
+      </div>
     </div>
   );
 }
