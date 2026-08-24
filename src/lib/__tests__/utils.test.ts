@@ -59,20 +59,20 @@ describe('validateExtension', () => {
 
 describe('isCompatible', () => {
   it('should return true when extension type matches template type', () => {
-    const template = { type: 'react' } as Template;
-    const extension = { type: 'react' } as Extension;
+    const template = { type: 'web-server' } as Template;
+    const extension = { type: 'web-server' } as Extension;
     expect(isCompatible(template, extension)).toBe(true);
   });
 
   it('should return true when extension type array includes template type', () => {
-    const template = { type: 'react' } as Template;
-    const extension = { type: ['react', 'nextjs'] } as Extension;
+    const template = { type: 'web-server' } as Template;
+    const extension = { type: ['web-server', 'cli-app'] } as Extension;
     expect(isCompatible(template, extension)).toBe(true);
   });
 
   it('should return false when extension type does not match', () => {
-    const template = { type: 'react' } as Template;
-    const extension = { type: 'nextjs' } as Extension;
+    const template = { type: 'web-server' } as Template;
+    const extension = { type: 'cli-app' } as Extension;
     expect(isCompatible(template, extension)).toBe(false);
   });
 });
