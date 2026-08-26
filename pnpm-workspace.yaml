@@ -13,9 +13,6 @@ overrides:
   esbuild: '>=0.28.1'
   flatted: '>=3.4.2'
   'glob@>=10 <10.5.0': '10.5.0'
-  # No patched js-yaml 4.x exists; these consumers only use the compatible load API.
-  '@eslint/eslintrc>js-yaml': '5.4.0'
-  'cosmiconfig>js-yaml': '5.4.0'
   lodash: '>=4.17.23'
   lodash-es: '>=4.17.23'
   'minimatch@<3.1.4': '3.1.4'
