@@ -17,12 +17,12 @@
   },
   "homepage": "https://github.com/Create-Vlang-App/website#readme",
   "dependencies": {
-    "danger": "^13.0.10"
+    "danger": "^11.2.0"
   },
   "devDependencies": {
     "typescript": "^5.8.2"
   },
   "overrides": {
-    "undici": ">=6.27.0"
+    "undici": ">=7.29.0"
   }
 }
