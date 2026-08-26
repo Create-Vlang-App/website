@@ -28,20 +28,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7
 
-      - name: Setup Danger Files
-        run: |
-          echo "Setting up Danger files..."
-          mv tools/danger/* .
-
       - uses: actions/setup-node@v4
         with:
           node-version-file: .node-version
 
-      - name: Install dependencies
-        run: npm install
+      - name: Install Danger dependencies
+        working-directory: tools/danger
+        run: npm ci
 
-      - name: Danger JS Action
-        uses: danger/danger-js@11.2.0
+      - name: Run Danger
+        run: tools/danger/node_modules/.bin/danger ci --dangerfile tools/danger/dangerfile.ts --failOnErrors
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DANGER_GITHUB_API_TOKEN: ${{ secrets.DANGER_GITHUB_API_TOKEN }}
