@@ -8,6 +8,19 @@ PRINT_ALL_FILES: false
 VALIDATE_ALL_CODEBASE: true
 FILTER_REGEX_EXCLUDE: (pnpm-lock\.yaml|megalinter-reports/|node_modules/|\.next/|tools/danger/package-lock\.json)
 
+# MegaLinter 10 ESLint uses ESM resolution, so run the project-local binary.
+PRE_COMMANDS:
+  - command: CI=true npx --yes pnpm@10.32.0 install --frozen-lockfile --ignore-scripts
+    cwd: workspace
+    run_before_linters: true
+    continue_if_failed: false
+JAVASCRIPT_ES_CLI_EXECUTABLE: node_modules/.bin/eslint
+TSX_ESLINT_CLI_EXECUTABLE: node_modules/.bin/eslint
+
+# Allow Zizmor online reference audit to use the job read-capable token.
+ACTION_ZIZMOR_UNSECURED_ENV_VARIABLES:
+  - GITHUB_TOKEN
+
 DISABLE_LINTERS:
   # SBOM generation is informational; keep trivy vuln scan as the gate.
   - REPOSITORY_TRIVY_SBOM
@@ -18,7 +31,6 @@ DISABLE_LINTERS:
   - CSS_STYLELINT
   # External link checkers are flaky in CI (npmjs 403, cert/network noise).
   - SPELL_LYCHEE
-  - MARKDOWN_MARKDOWN_LINK_CHECK
   # Schema store has no checkov schema; empty assignees fail issue-form schemas.
   - YAML_V8R
 
