@@ -21,10 +21,12 @@ jobs:
 
     steps:
       - name: Begin CI...
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
 
       - name: TODO to Issue
-        uses: alstr/todo-to-issue-action@v5.1.15
+        uses: alstr/todo-to-issue-action@37bb7b56e58569ef273b60678048030a7f0c261a # v5.1.15
         id: todo
         with:
           INSERT_ISSUE_URLS: 'true'
@@ -36,7 +38,10 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
       - name: Commit and Push Changes
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          gh auth setup-git
           git add -A
           if [[ $(git status --porcelain) ]]; then
             git commit -m "Automatically added GitHub issue links to TODOs"
