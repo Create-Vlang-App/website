@@ -4,19 +4,19 @@ import { categorySchema, extensionSchema, templateSchema, templatesDataSchema } 
 describe('categorySchema', () => {
   it('should validate a valid category', () => {
     const validCategory = {
-      slug: 'frontend-applications',
-      name: 'Frontend Applications',
-      description: 'Templates for building web interfaces.',
-      details: 'Discover templates for web servers, CLIs, and libraries.',
-      labels: ['Web', 'HTTP', 'veb'],
+      slug: 'web',
+      name: 'Web',
+      description: 'HTTP servers and web-facing V apps.',
+      details: 'veb/vweb starters and related HTTP tooling.',
+      labels: ['web', 'http', 'veb'],
     };
     expect(categorySchema.safeParse(validCategory).success).toBe(true);
   });
 
   it('should reject a category with missing required fields', () => {
     const invalidCategory = {
-      slug: 'frontend-applications',
-      name: 'Frontend Applications',
+      slug: 'web',
+      name: 'Web',
     };
     expect(categorySchema.safeParse(invalidCategory).success).toBe(false);
   });
@@ -29,7 +29,7 @@ describe('templateSchema', () => {
       description: 'A vweb HTTP server starter.',
       url: 'https://github.com/Create-Vlang-App/cva-templates?subdir=templates/web-server',
       type: 'web-server',
-      category: 'web-applications',
+      category: 'web',
       labels: ['V', 'vweb'],
       slug: 'web-server',
     };
@@ -41,10 +41,10 @@ describe('templateSchema', () => {
       name: 'Web Server Starter',
       description: 'A vweb/veb HTTP starter.',
       url: 'not-a-url',
-      type: 'react',
-      category: 'frontend-applications',
-      labels: ['web'],
-      slug: 'react-vite-starter',
+      type: 'web-server',
+      category: 'web',
+      labels: ['V', 'vweb'],
+      slug: 'web-server',
     };
     expect(templateSchema.safeParse(invalidTemplate).success).toBe(false);
   });
@@ -69,9 +69,9 @@ describe('extensionSchema', () => {
       name: 'GitHub Setup',
       description: 'Add GitHub automation.',
       url: 'https://github.com/Create-Vlang-App/cva-templates?subdir=extensions/github-setup',
-      type: ['react', 'nextjs', 'backend'],
-      category: 'Tooling',
-      labels: ['GitHub', 'CI/CD'],
+      type: ['web-server', 'cli-app', 'library-starter'],
+      category: 'ci',
+      labels: ['GitHub', 'CI'],
       slug: 'github-setup',
     };
     expect(extensionSchema.safeParse(validExtension).success).toBe(true);
@@ -87,7 +87,7 @@ describe('templatesDataSchema', () => {
           description: 'A vweb/veb HTTP starter.',
           url: 'https://github.com/Create-Vlang-App/cva-templates?subdir=templates/web-server',
           type: 'web-server',
-          category: 'web-applications',
+          category: 'web',
           labels: ['V', 'vweb'],
           slug: 'web-server',
         },
@@ -105,8 +105,8 @@ describe('templatesDataSchema', () => {
       ],
       categories: [
         {
-          slug: 'web-applications',
-          name: 'Web Applications',
+          slug: 'web',
+          name: 'Web',
           description: 'HTTP servers and web APIs built with V.',
           details: 'Templates for vweb/veb servers.',
           labels: ['Web', 'V'],

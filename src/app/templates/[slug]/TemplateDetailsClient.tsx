@@ -16,12 +16,20 @@ import type { Extension, Template } from '@/lib/schemas';
 
 function getTemplateIcon(type: string) {
   switch (type) {
-    case 'react':
-    case 'vue':
-      return <Code className="h-6 w-6 text-primary" />;
-    case 'nestjs':
-    case 'express':
+    case 'web-server':
       return <Server className="h-6 w-6 text-primary" />;
+    case 'cli-app':
+      return <Code className="h-6 w-6 text-primary" />;
+    case 'library-starter':
+      return <Package className="h-6 w-6 text-primary" />;
+    case 'systems-app':
+      return <Package className="h-6 w-6 text-primary" />;
+    case 'vsl-starter':
+      return <Code className="h-6 w-6 text-primary" />;
+    case 'vtl-starter':
+      return <Code className="h-6 w-6 text-primary" />;
+    case 'rxv-starter':
+      return <Package className="h-6 w-6 text-primary" />;
     default:
       return <Package className="h-6 w-6 text-primary" />;
   }
