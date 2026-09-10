@@ -38,10 +38,10 @@ When published on VPM: `v install create-vlang-app`.
 
 ## Catalog
 
-Vendored copy of the official bank registry:
+The site renders the official bank registry live — no vendored copy, no rebuild dispatch needed:
 
-- [`public/data/templates.json`](public/data/templates.json)
-- Source of truth: [cva-templates](https://github.com/Create-Vlang-App/cva-templates)
+- Source of truth: [cva-templates](https://github.com/Create-Vlang-App/cva-templates) (`templates.json` on `main`)
+- Loader: [`src/lib/data.ts`](src/lib/data.ts) fetches it at request time with hourly ISR revalidation; counts derive from the payload via `catalogStatsFrom` (fallback mock data only on fetch/validation failure)
 - Browse live: [create-awesome-vlang-app.vercel.app/templates](https://create-awesome-vlang-app.vercel.app/templates)
 
 ## Development
