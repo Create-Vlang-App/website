@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 import { AnimatedGradient } from '@/components/animated-gradient';
+import { CatalogSkeletonGrid } from '@/components/catalog-skeleton';
 import { ExtensionCard } from '@/components/extension-card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -190,23 +191,23 @@ export function ExtensionsPageClient() {
                 </div>
               </div>
             </div>
-            <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-8 md:grid-cols-2 lg:grid-cols-3">
-              {isLoading ? (
-                <div className="col-span-3 text-center py-12">
-                  <p className="text-muted-foreground">Loading extensions...</p>
-                </div>
-              ) : filteredExtensions.length > 0 ? (
-                filteredExtensions.map((extension, index) => (
-                  <div key={extension.slug} className={`fade-in-up-delay-${(index % 3) + 1}`}>
-                    <ExtensionCard extension={extension} />
+            {isLoading ? (
+              <CatalogSkeletonGrid label="Loading extensions…" className="pt-0" />
+            ) : (
+              <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-8 md:grid-cols-2 lg:grid-cols-3">
+                {filteredExtensions.length > 0 ? (
+                  filteredExtensions.map((extension, index) => (
+                    <div key={extension.slug} className={`fade-in-up-delay-${(index % 3) + 1}`}>
+                      <ExtensionCard extension={extension} />
+                    </div>
+                  ))
+                ) : (
+                  <div className="col-span-3 text-center py-12">
+                    <p className="text-muted-foreground">No extensions found. Please try a different search or type.</p>
                   </div>
-                ))
-              ) : (
-                <div className="col-span-3 text-center py-12">
-                  <p className="text-muted-foreground">No extensions found. Please try a different search or type.</p>
-                </div>
-              )}
-            </div>
+                )}
+              </div>
+            )}
           </div>
         </section>
       </div>
