@@ -5,6 +5,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 import { AnimatedGradient } from '@/components/animated-gradient';
 import { AnnouncementBanner } from '@/components/announcement-banner';
+import { CatalogSkeletonGrid } from '@/components/catalog-skeleton';
 import { HeroSection } from '@/components/hero-section';
 import { TemplateCard } from '@/components/template-card';
 import { Button } from '@/components/ui/button';
@@ -174,27 +175,27 @@ export function TemplatesPageClient() {
                 </div>
               </div>
             </div>
-            <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 pb-12 md:grid-cols-2 lg:grid-cols-3">
-              {isLoading ? (
-                <div className="col-span-3 text-center py-12">
-                  <p className="text-muted-foreground">Loading templates...</p>
-                </div>
-              ) : filteredTemplates.length > 0 ? (
-                filteredTemplates.map((template, index) => (
-                  <div key={template.slug} className={`fade-in-up-delay-${(index % 3) + 1}`}>
-                    <Link href={`/templates/${template.slug}`}>
-                      <TemplateCard template={template} />
-                    </Link>
+            {isLoading ? (
+              <CatalogSkeletonGrid label="Loading templates…" className="pb-12 pt-0" />
+            ) : (
+              <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 pb-12 md:grid-cols-2 lg:grid-cols-3">
+                {filteredTemplates.length > 0 ? (
+                  filteredTemplates.map((template, index) => (
+                    <div key={template.slug} className={`fade-in-up-delay-${(index % 3) + 1}`}>
+                      <Link href={`/templates/${template.slug}`}>
+                        <TemplateCard template={template} />
+                      </Link>
+                    </div>
+                  ))
+                ) : (
+                  <div className="col-span-3 text-center py-12">
+                    <p className="text-muted-foreground">
+                      No templates found. Please try a different search or category.
+                    </p>
                   </div>
-                ))
-              ) : (
-                <div className="col-span-3 text-center py-12">
-                  <p className="text-muted-foreground">
-                    No templates found. Please try a different search or category.
-                  </p>
-                </div>
-              )}
-            </div>
+                )}
+              </div>
+            )}
           </div>
         </section>
       </div>
