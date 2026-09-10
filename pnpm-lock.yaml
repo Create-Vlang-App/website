@@ -248,7 +248,7 @@ importers:
         specifier: ^8.28.0
         version: 8.28.0(eslint@9.23.0(jiti@2.4.2))(typescript@5.8.2)
       vite:
-        specifier: ^8.2.2
+        specifier: '>=8.2.2'
         version: 8.2.2(@types/node@24.13.3)(jiti@2.4.2)(yaml@2.9.0)
       vitest:
         specifier: ^4.1.10
