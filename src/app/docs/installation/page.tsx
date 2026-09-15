@@ -141,7 +141,7 @@ export default function InstallationPage() {
                   <div>
                     <p className="text-sm font-medium mb-2">Pin a version:</p>
                     <CopyButton
-                      command="CVA_VERSION=0.1.0 curl -fsSL https://create-awesome-vlang-app.vercel.app/install.sh | sh"
+                      command="CVA_VERSION=0.2.1 curl -fsSL https://create-awesome-vlang-app.vercel.app/install.sh | sh"
                       className="w-full justify-start font-mono text-sm bg-muted rounded-md px-4 py-3"
                     />
                   </div>
@@ -219,7 +219,7 @@ export default function InstallationPage() {
                 <CardContent className="space-y-4">
                   <CopyButton
                     command={`curl -fsSL -o create-vlang-app \\
-  "https://github.com/Create-Vlang-App/create-vlang-app/releases/download/create-vlang-app%400.1.0/create-vlang-app-linux-x86_64"
+  "https://github.com/Create-Vlang-App/create-vlang-app/releases/download/create-vlang-app%400.2.1/create-vlang-app-linux-x86_64"
 chmod +x create-vlang-app
 mv create-vlang-app ~/.local/bin/`}
                     className="w-full justify-start font-mono text-sm bg-muted rounded-md px-4 py-3 whitespace-pre-wrap h-auto"
